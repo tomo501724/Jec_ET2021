@@ -1,3 +1,6 @@
-APPL_COBJS += 
+APPL_COBJS += app.o
+APPL_CXXOBJS += 
+SRCLANG := c++
+
 # COPTS += -DMAKE_BT_DISABLE
 INCLUDES += -I$(ETROBO_HRP3_WORKSPACE)/etroboc_common
