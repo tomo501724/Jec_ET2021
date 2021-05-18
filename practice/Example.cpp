@@ -14,15 +14,17 @@ class Example {
 
 void Example::aShow() {
     ExampleA a();
-    
+    a.showExA(this->a);
 }
 
 void Example::bShow() {
     ExampleB b();
+    b.showExB(this->b);
 }
 
 void Example::cShow() {
     Example c();
+    c.showExC(*this);
 }
 
 int Example::getC() {
