@@ -11,10 +11,14 @@ class ExampleC
 		Example ex;
 
 	public:
-		void showExC(Example ex);
+        ExampleC(Example ex);
+		void showExC();
 };
 
-void ExampleC::showExC(Example ex)
+ExampleC::ExampleC(Example ex){
+    this->ex=ex;
+}
+void ExampleC::showExC()
 {
-	std::cout << ex.getC() << std::endl;
+	std::cout << this->ex.getC() << std::endl;
 }
