@@ -7,18 +7,23 @@ class ExmapleB;
 
 class ExampleC
 {
-	private:
-		Example ex;
+  private:
+    Example* ex;
 
-	public:
-        ExampleC(Example ex);
-		void showExC();
+  public:
+    ExampleC();
+    ~ExampleC();
+
+    void showExC();
 };
 
-ExampleC::ExampleC(Example ex){
-    this->ex=ex;
+ExampleC::ExampleC(){
+  this->ex=new Example();
+}
+ExampleC::~ExampleC(){
+  delete this->ex;
 }
 void ExampleC::showExC()
 {
-	std::cout << this->ex.getC() << std::endl;
+  std::cout << this->ex->getC() << std::endl;
 }
