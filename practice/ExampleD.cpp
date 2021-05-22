@@ -1,0 +1,6 @@
+class ExampleD {
+    private:
+
+    public:
+
+}

@@ -9,6 +9,7 @@ class Example {
     void aShow();
     void bShow();
     void cShow();
+    void dShow();
     int getC();
 }
 
@@ -25,6 +26,11 @@ void Example::bShow() {
 void Example::cShow() {
     Example c();
     c.showExC(*this);
+}
+
+void Example::dShow() {
+    ExampleD d();
+    int a = d.showExD(this->a);
 }
 
 int Example::getC() {
