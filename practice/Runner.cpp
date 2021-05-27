@@ -1,5 +1,7 @@
 #include "Runner.h"
 
+//現在のC/C++コンパイラは #pragma once の一文でもインクルードガードできます
+
 Runner::Runner(
     ev3api::Motor* leftMotor
     ,ev3api::Motor* rightMotor
