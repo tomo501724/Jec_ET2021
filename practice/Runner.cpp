@@ -7,43 +7,45 @@ Runner::Runner(
     ,ev3api::Motor* rightMotor
     ,int speed){
 
-        this->leftMotor=leftMotor;
-        this->rightMotor=rightMotor;
+    this->leftMotor = leftMotor;
+    this->rightMotor = rightMotor;
 
-        this->setSpeed(speed);
-
+    setSpeed(speed);
 }
 
 void Runner::forward(){
-    this->leftMotor->setPWM(this->speed);
-    this->rightMotor->setPWM(this->speed);
+    leftMotor->setPWM(speed);
+    rightMotor->setPWM(speed);
 }
 void Runner::back(){
-    this->leftMotor->setPWM(-this->speed);
-    this->rightMotor->setPWM(-this->speed);
+    leftMotor->setPWM(-speed);
+    rightMotor->setPWM(-speed);
 
 }
 void Runner::turnLeft(){
-    this->leftMotor->stop();
-    this->rightMotor->setPWM(this->speed);
+    leftMotor->stop();
+    rightMotor->setPWM(speed);
 }
 void Runner::turnRight(){
-    this->leftMotor->setPWM(this->speed);
-    this->rightMotor->stop();
+    leftMotor->setPWM(speed);
+    rightMotor->stop();
 }
 void Runner::stop(){
-    this->leftMotor->stop();
-    this->rightMotor->stop();
+    leftMotor->stop();
+    rightMotor->stop();
 }
 
 void Runner::setSpeed(int speed){
-    if(speed<0){
-        speed=0;
-    }else if(speed>ev3api::Motor::PWM_MAX){
-        speed=ev3api::Motor::PWM_MAX;
+    if (speed < 0)
+    {
+        speed = 0;
     }
-    this->speed=speed;
+    else if (speed > ev3api::Motor::PWM_MAX)
+    {
+        speed = ev3api::Motor::PWM_MAX;
+    }
+    this->speed = speed;
 }
 int Runner::getSpeed(){
-    return this->speed;
+    return speed;
 }

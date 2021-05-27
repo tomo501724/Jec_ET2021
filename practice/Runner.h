@@ -1,6 +1,4 @@
-#ifndef __RUNNER_H__
-
-#define __RUNNER_H__
+#pragma once
 
 #include "ev3api.h"
 #include "Motor.h"
@@ -45,5 +43,3 @@ class Runner{
         void setSpeed(int speed);
         int getSpeed();
 };
-
-#endif
