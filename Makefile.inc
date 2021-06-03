@@ -1,4 +1,4 @@
-APPL_COBJS += app.o
+APPL_COBJS += 
 APPL_CXXOBJS += 
 SRCLANG := c++
 
