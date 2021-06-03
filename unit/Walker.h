@@ -16,7 +16,7 @@ public:
     Walker(
         ev3api::Motor &leftWheel,
         ev3api::Motor &rightWheel);
-    void inti();
+    void init();
     void run();
     void setCommand(int forward, int turn);
 };
