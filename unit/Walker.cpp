@@ -48,3 +48,26 @@ void Walker::setCommand(
         this->forward=forward;
         this->turn=turn;
 }
+
+void Walker::init(){
+    this->leftWheel.reset();
+    this->rightWheel.reset();
+}
+
+void Walker::run(){
+    int rightPWM = 0, leftPWM = 0;
+
+    if(this->turn == RIGHT){
+        rightPWM = 0;
+        leftPWM = this->forward;
+    }else if(this->turn == LEFT){
+        rightPWM = this->forward;
+        leftPWM = 0;
+    }else{
+        rightPWM = this->forward;
+        leftPWM = this->forward;
+    }
+
+    rightWheel.setPWM(rightPWM);
+    leftWheel.setPWM(leftPWM);
+}
