@@ -1,5 +1,6 @@
 #include "app.h"
 #include "LineTracer.h"
+#include "ev3api.h"
 
 #if defined(BUILD_MODULE)
 #include "module_cfg.h"
@@ -11,25 +12,50 @@ using ev3api::ColorSensor;
 using ev3api::Motor;
 
 ColorSensor gColorSensor(PORT_2);
-Motor       gLeftWheel(PORT_C);
-Motor       gRightWheel(PORT_B);
+Motor gLeftWheel(PORT_C);
+Motor gRightWheel(PORT_B);
 
-static LineMotor*  gLineMonitor;
-static Walker*     gWalker;
-static LineTracer* gLineTracer;
+static LineMotor *gLineMonitor;
+static Walker *gWalker;
+static LineTracer *gLineTracer;
 
-static void userSystemCreate(){
+static void userSystemCreate()
+{
     gWalker = new Walker(gLeftWheel, gRightWheel);
     gLineMonitor = new LineMonitor(gColorSensor);
-    gLineTracer = new LineTracer(gLineMonitor,gWalker);
+    gLineTracer = new LineTracer(gLineMonitor, gWalker);
 
     ev3_led_set_color(LED_ORANGE);
 }
-static void UserSystemDestroy(){
+static void UserSystemDestroy()
+{
     gLeftWheel.reset();
     gRightWheel.reset();
 
     delete gLineTracer;
     delete gLineMonitor;
     delete gWalker;
+}
+
+void main_task(intptr_t unused)
+{
+    userSystemCreate();
+    sta_cyc(CYC_TRACER);
+    slp_tsk();
+
+    stp_cyc(CYC_TRACER);
+    UserSystemDestroy();
+    ext_tsk();
+}
+void tracer_task(intptr_t exinf)
+{
+    if (ev3_button_is_pressed(BACK_BUTTON))
+    {
+        wup_tsk(MAIN_TASK);
+    }
+    else
+    {
+        gLineTracer->run();
+    }
+    end_tsk();
 }
