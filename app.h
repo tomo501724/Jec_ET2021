@@ -52,6 +52,8 @@ extern "C" {
  *  ターゲット依存の定義
  */
 #include "target_test.h"
+#include "ev3api.h"
+//#include "app/LineMonitor.h"
 
 /*
  *  各タスクの優先度の定義
@@ -82,7 +84,6 @@ extern "C" {
 #ifndef TOPPERS_MACRO_ONLY
 
 extern void main_task(intptr_t exinf);
-extern void bt_task(intptr_t exinf);
 extern void tracer_task(intptr_t exinf);
 
 #endif /* TOPPERS_MACRO_ONLY */

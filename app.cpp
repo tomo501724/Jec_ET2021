@@ -1,5 +1,9 @@
 #include "app.h"
-#include "app/LineTracer.h"
+#include "ColorSensor.h"
+#include "Motor.h"
+#include "LineMonitor.h"
+#include "Walker.h"
+#include "LineTracer.h"
 
 #if defined(BUILD_MODULE)
 #include "module_cfg.h"
@@ -14,7 +18,7 @@ ColorSensor gColorSensor(PORT_2);
 Motor gLeftWheel(PORT_C);
 Motor gRightWheel(PORT_B);
 
-static LineMotor *gLineMonitor;
+static LineMonitor *gLineMonitor;
 static Walker *gWalker;
 static LineTracer *gLineTracer;
 
@@ -57,5 +61,5 @@ void tracer_task(intptr_t exinf)
     {
         gLineTracer->run();
     }
-    end_tsk();
+    ext_tsk();
 }
