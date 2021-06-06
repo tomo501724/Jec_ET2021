@@ -10,7 +10,7 @@
 #define EV3_APP_LINETRACER_H_
 
 #include "LineMonitor.h"
-#include "Walker.h"
+#include "../unit/Walker.h"
 
 class LineTracer {
 public:

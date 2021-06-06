@@ -9,7 +9,7 @@
 #ifndef EV3_UNIT_LINEMONITOR_H_
 #define EV3_UNIT_LINEMONITOR_H_
 
-#include "ColorSensor.h"
+#include "ev3api.h"
 
 // 定義
 class LineMonitor {

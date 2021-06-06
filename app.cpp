@@ -1,6 +1,5 @@
 #include "app.h"
-#include "LineTracer.h"
-#include "ev3api.h"
+#include "app/LineTracer.h"
 
 #if defined(BUILD_MODULE)
 #include "module_cfg.h"
@@ -40,6 +39,7 @@ static void UserSystemDestroy()
 void main_task(intptr_t unused)
 {
     userSystemCreate();
+    
     sta_cyc(CYC_TRACER);
     slp_tsk();
 
