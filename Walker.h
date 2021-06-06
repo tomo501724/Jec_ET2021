@@ -7,7 +7,7 @@ class Walker
 {
 
 private:
-    ev3api::Motor &leftWheel, rightWheel;
+    ev3api::Motor &leftWheel, &rightWheel;
     int forward, turn;
 
 public:
