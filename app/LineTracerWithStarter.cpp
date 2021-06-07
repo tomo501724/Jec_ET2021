@@ -21,7 +21,7 @@ void LineTracerWithStarter::run()
     case WALKING:
         execWalking();
         break;
-        default;
+    default;
         break;
     }
 }
