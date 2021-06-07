@@ -22,3 +22,19 @@ void LineTracerWithStarter::run(){
             break;
     }
 }
+
+// UNDEFINEDの処理
+void LineTracerWithStarter::execUndefined(){
+    mState=WAITING_FOR_START;
+}
+
+// WAITING_FOR_STARTの処理
+void LineTracerWithStarter::execWaitingForStart(){
+    if(mStarter->isPushed()){
+        mState = WALKING;
+    }
+}
+
+void LineTracerWithStarter::execWalking(){
+    mLineTracer->run();
+}
