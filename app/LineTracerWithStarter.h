@@ -14,4 +14,15 @@ public:
 private:
     LineTracer *mLineTracer;
     const Starter *mStarter;
-}
+
+    enum State
+    {
+        UNDEFINED,
+        WAITING_FOR_START,
+        WALKING
+    };
+    State mState;
+    void execUndefined();
+    void execWaitingForStart();
+    void execWalking();
+};
