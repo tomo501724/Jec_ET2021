@@ -22,6 +22,7 @@ private:
         WALKING
     };
     State mState;
+
     void execUndefined();
     void execWaitingForStart();
     void execWalking();
