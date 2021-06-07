@@ -8,5 +8,17 @@ LineTracerWithStarter::LineTracerWithStarter(
 }
 
 void LineTracerWithStarter::run(){
-
+    swtich(mState){
+        case UNDEFINED:
+            execUndefined();
+            break;
+        case WAITING_FOR_START:
+            execWaitingForStart();
+            break;
+        case WALKING:
+            execWalking();
+            break;
+        default;
+            break;
+    }
 }
