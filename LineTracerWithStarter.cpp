@@ -10,7 +10,7 @@ LineTracerWithStarter::LineTracerWithStarter(
 
 void LineTracerWithStarter::run()
 {
-    swtich(mState)
+    switch(mState)
     {
     case UNDEFINED:
         execUndefined();
@@ -21,7 +21,7 @@ void LineTracerWithStarter::run()
     case WALKING:
         execWalking();
         break;
-        default;
+        default:
         break;
     }
 }

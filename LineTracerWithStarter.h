@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../LineTracer.h"
+#include "LineTracer.h"
 #include "Starter.h"
 
 class LineTracerWithStarter

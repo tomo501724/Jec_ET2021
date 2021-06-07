@@ -5,6 +5,8 @@
 #include "Walker.h"
 #include "LineTracer.h"
 #include "TouchSensor.h"
+#include "Starter.h"
+#include "LineTracerWithStarter.h"
 
 #if defined(BUILD_MODULE)
 #include "module_cfg.h"
@@ -34,7 +36,7 @@ static void userSystemCreate()
     gLineMonitor = new LineMonitor(gColorSensor);
     gLineTracer = new LineTracer(gLineMonitor, gWalker);
     gStarter = new Starter(gTouchSensor);
-    gLineTracerWithStarter = new gLineTracerWithStarter(gLineTracer, gStarter);
+    gLineTracerWithStarter = new LineTracerWithStarter(gLineTracer, gStarter);
 
     ev3_led_set_color(LED_ORANGE);
 }

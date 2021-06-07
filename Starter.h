@@ -7,7 +7,7 @@ public:
         const ev3api::TouchSensor& touchSensor
     );
 
-    bool ispushed() const;
+    bool isPushed() const;
 
 private:
     const ev3api::TouchSensor& mTouchSensor;
