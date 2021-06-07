@@ -4,37 +4,44 @@ LineTracerWithStarter::LineTracerWithStarter(
     LineTracer *LineTracer, const Starter *starter)
     : mLineTracer(LineTracer),
       mStarter(starter),
-      mState(UNDEFINED) {
+      mState(UNDEFINED)
+{
 }
 
-void LineTracerWithStarter::run(){
-    swtich(mState){
-        case UNDEFINED:
-            execUndefined();
-            break;
-        case WAITING_FOR_START:
-            execWaitingForStart();
-            break;
-        case WALKING:
-            execWalking();
-            break;
+void LineTracerWithStarter::run()
+{
+    swtich(mState)
+    {
+    case UNDEFINED:
+        execUndefined();
+        break;
+    case WAITING_FOR_START:
+        execWaitingForStart();
+        break;
+    case WALKING:
+        execWalking();
+        break;
         default;
-            break;
+        break;
     }
 }
 
 // UNDEFINEDの処理
-void LineTracerWithStarter::execUndefined(){
-    mState=WAITING_FOR_START;
+void LineTracerWithStarter::execUndefined()
+{
+    mState = WAITING_FOR_START;
 }
 
 // WAITING_FOR_STARTの処理
-void LineTracerWithStarter::execWaitingForStart(){
-    if(mStarter->isPushed()){
+void LineTracerWithStarter::execWaitingForStart()
+{
+    if (mStarter->isPushed())
+    {
         mState = WALKING;
     }
 }
 
-void LineTracerWithStarter::execWalking(){
+void LineTracerWithStarter::execWalking()
+{
     mLineTracer->run();
 }
