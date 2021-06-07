@@ -1,4 +1,4 @@
-APPL_CXXOBJS += Walker.o LineMonitor.o LineTracer.o
+APPL_CXXOBJS += Walker.o LineMonitor.o LineTracer.o Starter.o LineTracerWithStarter.o
 SRCLANG := c++
 
 ifdef CONFIG_EV3RT_APPLICATION
