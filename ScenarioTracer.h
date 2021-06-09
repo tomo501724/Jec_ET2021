@@ -2,7 +2,7 @@
 
 #include "LineTracer.h"
 #include "Walker.h"
-#include  "Scenario.h"
+#include "Scenario.h"
 #include "SimpleTimer.h"
 
 class ScenarioTracer
