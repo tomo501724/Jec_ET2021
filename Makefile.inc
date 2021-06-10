@@ -5,7 +5,7 @@ APPL_CXXOBJS += Walker.o \
                 LineTracerWithStarter.o \
                 Scene.o \
                 Scenario.o \
-                ScnarioTtracer.o \
+                ScenarioTracer.o \
 
 SRCLANG := c++
 
