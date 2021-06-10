@@ -6,6 +6,7 @@ APPL_CXXOBJS += Walker.o \
                 Scene.o \
                 Scenario.o \
                 ScenarioTracer.o \
+                SimpleTimer.o
 
 SRCLANG := c++
 
