@@ -27,7 +27,7 @@ Scene* Scenario::current() const {
 
 Scene* Scenario::next() {
     if (mCurrentScene != 0) {
-        mCurrentScene = mCurrentScene0->next;
+        mCurrentScene = mCurrentScene->next;
     } else {
         mCurrentScene = mTopScene;
     }
