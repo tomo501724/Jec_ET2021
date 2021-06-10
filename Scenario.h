@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ev3api.h"
-#include "Scane.h"
+#include "Scene.h"
 
 class Scenario {
 public:
