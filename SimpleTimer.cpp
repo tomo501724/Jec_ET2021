@@ -1,6 +1,6 @@
 #include "SimpleTimer.h"
 
-SimpleTimer::SimpleTimer(ev3api::Clock& clock) 
+SimpleTimer::SimpleTimer(ev3api::Clock* clock) 
 :mClock(clock)
 {
     mStartTime = 0;
@@ -13,7 +13,7 @@ void SimpleTimer::setTime(uint32_t delay) {
 }
 
 void SimpleTimer::start() {
-    mStartTime = mClock.now();
+    mStartTime = mClock->now();
     mTargetTime = mStartTime + mDelayMs;
 }
 
@@ -23,7 +23,7 @@ void SimpleTimer::stop() {
 }
 
 bool SimpleTimer::isTimeOut() {
-    return mTargetTime < mClock.now();
+    return mTargetTime < mClock->now();
 }
 
 bool SimpleTimer::isStarted() {

@@ -1,4 +1,10 @@
 #include "ScenarioTracer.h"
+#include "Walker.h"
+
+ScenarioTracer::ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer) {
+    mWalker = walker;
+    mSimpleTimer = simpleTimer;
+}
 
 void ScenarioTracer::initAction(){
     mWalker->init();
@@ -24,20 +30,20 @@ void ScenarioTracer::modeChangeAction(){
 //UNDEFINEDの処理
 void ScenarioTracer::execUndefined()
 {
-    mState = INITIAL;
+    mState = ScenarioTracer::INITIAL;
 }
 //INITIALの処理
 void ScenarioTracer::execInitial()
 {
     initAction();
-    mState = WALKING;
+    mState = ScenarioTracer::WALKING;
     modeChangeAction();
 }
 //WALKINGの処理
 void ScenarioTracer::execWalking()
 {
     mWalker->run();
-    if (mSimpleTimer->isTimedOut()){
+    if (mSimpleTimer->isTimeOut()){
         mSimpleTimer->stop();
         modeChangeAction();
     }

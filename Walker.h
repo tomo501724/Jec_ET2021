@@ -14,8 +14,8 @@ public:
     static const int LOW, NORMAL, HIGH, RIGHT, LEFT;
 
     Walker(
-        ev3api::Motor &leftWheel,
-        ev3api::Motor &rightWheel);
+        ev3api::Motor& leftWheel,
+        ev3api::Motor& rightWheel);
     void init();
     void run();
     void setCommand(int forward, int turn);

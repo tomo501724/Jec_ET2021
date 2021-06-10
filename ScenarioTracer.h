@@ -15,12 +15,12 @@ private:
         WALKING
     };
     State mState;
-    Walker mWalker;
-    Scenario mScenario;
-    SimpleTimer mSimpleTimer;
+    Walker* mWalker;
+    Scenario* mScenario;
+    SimpleTimer* mSimpleTimer;
 
     void initAction();
-    void setCommand();
+    void setCommand(SceneCommands command);
     void modeChangeAction();
 
     void execUndefined();
@@ -28,6 +28,6 @@ private:
     void execWalking();
 
 public:
-    ScenarioTracer();
+    ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer);
     void run();
 };
