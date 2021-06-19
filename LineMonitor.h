@@ -14,16 +14,15 @@
 // 定義
 class LineMonitor {
 public:
-    explicit LineMonitor(const ev3api::ColorSensor& colorSensor);
+    LineMonitor(Color& color) : mColor(color);
 
-    bool isOnLine() const;
-    void setThreshold(int8_t threshold);
+    int getRGB();
 
 private:
-    static const int8_t INITIAL_THRESHOLD;
+    static const int8_t INITIAL_THRESHOLD = 20;
 
-    const ev3api::ColorSensor& mColorSensor;
-    int8_t mThreshold;
+    Color& mColor;
+    int8_t mThreshold = INITIAL_THRESHOLD;
 };
 
 #endif  // EV3_UNIT_LINEMONITOR_H_
