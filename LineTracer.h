@@ -16,13 +16,14 @@
 
 class LineTracer {
 public:
-    LineTracer(const LineMonitor* lineMonitor,
+    LineTracer(LineMonitor* lineMonitor,
                Walker* walker);
+    ~LineTracer();
 
     void run();
 
 private:
-    const LineMonitor* mLineMonitor;
+    LineMonitor* mLineMonitor;
     Walker* mWalker;
     bool mIsInitialized;
     PID* mPID;

@@ -11,8 +11,9 @@ const int Walker::LEFT   = 1;
 
 Walker::Walker(
     ev3api::Motor& leftWheel,
-    ev3api::Motor& rightWheel)
-    :leftWheel(leftWheel), rightWheel(rightWheel), mAdvancedSteering(mSteering)
+    ev3api::Motor& rightWheel,
+    AdvancedSteering& steering)
+    :leftWheel(leftWheel), rightWheel(rightWheel), mSteering(steering)
 {
         this->forward = 0;
         this->turn = 0;
@@ -21,7 +22,7 @@ Walker::Walker(
 void Walker::run(){
     // 左右モーターに回転を指示する
     
-    mAdvancedSteering.setPower(forward, turn);
+    mSteering.setPower(forward, turn);
 }
 
 void Walker::init(){

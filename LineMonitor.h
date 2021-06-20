@@ -6,23 +6,18 @@
  *  Copyright (c) 2015 Embedded Technology Software Design Robot Contest
  *****************************************************************************/
 
-#ifndef EV3_UNIT_LINEMONITOR_H_
-#define EV3_UNIT_LINEMONITOR_H_
+#pragma once
 
-#include "ColorSensor.h"
+#include "Color.h"
 
 // 定義
 class LineMonitor {
 public:
-    LineMonitor(Color& color) : mColor(color);
-
+    LineMonitor(Color& color);
     int getRGB();
 
 private:
-    static const int8_t INITIAL_THRESHOLD = 20;
-
     Color& mColor;
+    static const int8_t INITIAL_THRESHOLD = 20;
     int8_t mThreshold = INITIAL_THRESHOLD;
 };
-
-#endif  // EV3_UNIT_LINEMONITOR_H_

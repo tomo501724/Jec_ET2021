@@ -20,6 +20,7 @@ private:
 
 public:
     PID();
+    PID(float kp, float ki, float kd);
     void setPID(float pValue, float iValue, float dValue);
     int calcControl(int nowValue);
 

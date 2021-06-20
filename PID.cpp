@@ -20,6 +20,15 @@ PID::PID() {
     integral = 0.0f;
 }
 
+PID::PID(float kp, float ki, float kd) {
+    this->kp = kp;
+    this->ki = ki;
+    this->kd = kd;
+
+    diff[0] = diff[1] = 0;
+    integral = 0.0f;
+}
+
 /**
  * 係数設定
  * @param pValue 係数P

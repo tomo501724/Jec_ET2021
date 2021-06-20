@@ -44,9 +44,9 @@ static void userSystemCreate()
     tslp_tsk(2 * 1000);
     //gClock = new Clock();
     gAdvancedSteering = new AdvancedSteering(gLeftWheel, gRightWheel);
-    gWalker = new Walker(gLeftWheel, gRightWheel);
+    gWalker = new Walker(gLeftWheel, gRightWheel, *gAdvancedSteering);
     gColor = new Color(PORT_2);
-    gLineMonitor = new LineMonitor(gColor);
+    gLineMonitor = new LineMonitor(*gColor);
     gLineTracer = new LineTracer(gLineMonitor, gWalker);
     //gStarter = new Starter(gTouchSensor);
     //gLineTracerWithStarter = new LineTracerWithStarter(gLineTracer, gStarter);

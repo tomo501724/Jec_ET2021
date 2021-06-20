@@ -1,12 +1,9 @@
 APPL_CXXOBJS += Walker.o \
                 LineMonitor.o \
                 LineTracer.o \
-                Starter.o \
-                LineTracerWithStarter.o \
-                Scene.o \
-                Scenario.o \
-                ScenarioTracer.o \
-                SimpleTimer.o
+                Color.o \
+                PID.o \
+                AdvancedSteering.o
 
 SRCLANG := c++
 

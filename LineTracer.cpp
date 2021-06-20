@@ -13,7 +13,7 @@
  * @param lineMonitor     ライン判定
  * @param walker 走行
  */
-LineTracer::LineTracer(const LineMonitor* lineMonitor,
+LineTracer::LineTracer(LineMonitor* lineMonitor,
                        Walker* walker)
     : mLineMonitor(lineMonitor),
       mWalker(walker),
@@ -38,8 +38,8 @@ void LineTracer::run() {
     }
 
     // 走行体の向きを計算する
-    int turn = mPID->calcControl(mTargetRGB - mLineMonitor->getRGB())
-    m
+    int turn = mPID->calcControl(mTargetRGB - mLineMonitor->getRGB());
+    mWalker->setCommand(Walker::HIGH, turn);
 
     // 走行を行う
     mWalker->run();

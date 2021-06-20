@@ -7,7 +7,7 @@
  *****************************************************************************/
 
 #include "LineMonitor.h"
-#include "ColorSensor.h"
+
 
 LineMonitor::LineMonitor(Color& color) : mColor(color) {
 
