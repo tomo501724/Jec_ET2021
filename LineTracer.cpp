@@ -17,7 +17,15 @@ LineTracer::LineTracer(const LineMonitor* lineMonitor,
                        Walker* walker)
     : mLineMonitor(lineMonitor),
       mWalker(walker),
-      mIsInitialized(false) {
+      mIsInitialized(false) 
+{
+    mPID = new PID(0.7f,  0.0f, 103.0f);
+    mTouchSensor = new ev3api::TouchSensor(PORT_1);
+}
+
+LineTracer::~LineTracer() {
+    delete mPID;
+    delete mTouchSensor;
 }
 
 /**
@@ -29,12 +37,9 @@ void LineTracer::run() {
         mIsInitialized = true;
     }
 
-    bool isOnLine = mLineMonitor->isOnLine();
-
     // 走行体の向きを計算する
-    int direction = calcDirection(isOnLine);
-
-    mWalker->setCommand(Walker::LOW, direction);
+    int turn = mPID->calcControl(mTargetRGB - mLineMonitor->getRGB())
+    m
 
     // 走行を行う
     mWalker->run();

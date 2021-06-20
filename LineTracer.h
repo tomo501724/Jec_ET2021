@@ -11,6 +11,8 @@
 
 #include "LineMonitor.h"
 #include "Walker.h"
+#include "PID.h"
+#include "TouchSensor.h"
 
 class LineTracer {
 public:
@@ -23,6 +25,10 @@ private:
     const LineMonitor* mLineMonitor;
     Walker* mWalker;
     bool mIsInitialized;
+    PID* mPID;
+    ev3api::TouchSensor* mTouchSensor; 
+    int mTargetRGB;
+    
 
     int calcDirection(bool isOnLine);
 };
