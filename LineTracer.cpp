@@ -21,6 +21,7 @@ LineTracer::LineTracer(LineMonitor* lineMonitor,
 {
     mPID = new PID(0.7f,  0.0f, 103.0f);
     mTouchSensor = new ev3api::TouchSensor(PORT_1);
+    mTargetRGB = 97;
 }
 
 LineTracer::~LineTracer() {

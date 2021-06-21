@@ -90,7 +90,7 @@ void tracer_task(intptr_t exinf)
     }
     else
     {
-        //gLineTracerWithStarter->run();
+        gLineTracer->run();
     }
     ext_tsk();
 }
