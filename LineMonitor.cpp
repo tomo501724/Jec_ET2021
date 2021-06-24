@@ -18,3 +18,6 @@ int LineMonitor::getRGB() {
     return mColor.getTotalRGB();
 }
 
+bool LineMonitor::isOnBlue() {
+    return mColor.isColor(BLUE_RGB, 0);
+}

@@ -15,9 +15,11 @@ class LineMonitor {
 public:
     LineMonitor(Color& color);
     int getRGB();
+    bool isOnBlue();
 
 private:
     Color& mColor;
     static const int8_t INITIAL_THRESHOLD = 20;
     int8_t mThreshold = INITIAL_THRESHOLD;
+    rgb_raw_t BLUE_RGB = {20U, 46U, 93U};
 };
