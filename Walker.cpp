@@ -17,8 +17,16 @@ Walker::Walker(
 {
         this->forward = 0;
         this->turn = 0;
+        this->mRunningDistance(&leftWheel,&rightWheel);
 }
 
+bool Walker::isGoal(){
+    return this->mRunningDistance.getRunDistance();
+}
+void Walker::stop(){
+    leftWheel.stop();
+    rightWheel.stop();
+}
 void Walker::run(){
     // 左右モーターに回転を指示する
     
