@@ -61,3 +61,7 @@ int LineTracer::calcDirection(bool isOnLine) {
         return Walker::LEFT;
     }
 }
+
+bool LineTracer::isGoal() {
+    return mLineMonitor->isOnBlue();
+}

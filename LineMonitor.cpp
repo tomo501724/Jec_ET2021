@@ -19,5 +19,5 @@ int LineMonitor::getRGB() {
 }
 
 bool LineMonitor::isOnBlue() {
-    return mColor.isColor(BLUE_RGB, 0);
+    return mColor.isColor(BLUE_RGB, 10);
 }

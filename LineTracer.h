@@ -15,13 +15,6 @@
 #include "TouchSensor.h"
 
 class LineTracer {
-public:
-    LineTracer(LineMonitor* lineMonitor,
-               Walker* walker);
-    ~LineTracer();
-
-    void run();
-
 private:
     LineMonitor* mLineMonitor;
     Walker* mWalker;
@@ -29,9 +22,15 @@ private:
     PID* mPID;
     ev3api::TouchSensor* mTouchSensor; 
     int mTargetRGB;
-    
 
+public:
+    LineTracer(LineMonitor* lineMonitor,
+               Walker* walker);
+    ~LineTracer();
+
+    void run();
     int calcDirection(bool isOnLine);
+    bool isGoal();
 };
 
 #endif  // EV3_APP_LINETRACER_H_

@@ -84,7 +84,7 @@ void main_task(intptr_t unused)
 }
 void tracer_task(intptr_t exinf)
 {
-    if (ev3_button_is_pressed(BACK_BUTTON))
+    if (ev3_button_is_pressed(BACK_BUTTON) || gLineTracer->isGoal())
     {
         wup_tsk(MAIN_TASK);
     }
