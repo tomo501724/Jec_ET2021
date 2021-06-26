@@ -17,11 +17,11 @@ Walker::Walker(
 {
         this->forward = 0;
         this->turn = 0;
-        this->mRunningDistance(&leftWheel,&rightWheel);
+        mRunningDistance = new RunningDistance(&leftWheel,&rightWheel);
 }
 
 bool Walker::isGoal(){
-    return this->mRunningDistance.getRunDistance();
+    return this->mRunningDistance->getRunDistance(); //ゴールまでの距離を比較する
 }
 void Walker::stop(){
     leftWheel.stop();

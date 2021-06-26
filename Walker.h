@@ -3,7 +3,7 @@
 
 #include "Motor.h"
 #include "AdvancedSteering.h"
-#include "jec_lib/RunningDistance.h"
+#include "RunningDistance.h"
 
 class Walker
 {
@@ -12,7 +12,7 @@ private:
     ev3api::Motor &leftWheel, &rightWheel;
     AdvancedSteering& mSteering;
     int forward, turn, LINETRACE_DISTANCE;
-    RunningDistance mRunningDistance;
+    RunningDistance* mRunningDistance;
 
 public:
     static const int LOW, NORMAL, HIGH, RIGHT, LEFT;

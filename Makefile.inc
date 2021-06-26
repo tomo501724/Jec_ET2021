@@ -3,7 +3,8 @@ APPL_CXXOBJS += Walker.o \
                 LineTracer.o \
                 Color.o \
                 PID.o \
-                AdvancedSteering.o
+                AdvancedSteering.o \
+                RunningDistance.o
 
 SRCLANG := c++
 

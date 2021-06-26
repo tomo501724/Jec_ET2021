@@ -4,6 +4,10 @@
 #include "Scene.h"
 
 class Scenario {
+private:
+    Scene* mTopScene;
+    Scene* mCurrentScene;
+
 public:
     explicit Scenario(Scene* scene);
 
@@ -13,8 +17,5 @@ public:
     Scene* next();
     SceneCommands currentSceneCommand() const;
     uint32_t currentSceneTime() const;
-
-private:
-    Scene* mTopScene;
-    Scene* mCurrentScene;
+    
 };
