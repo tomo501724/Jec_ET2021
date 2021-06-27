@@ -1,7 +1,8 @@
 #include "Scenario.h"
 
 Scenario::Scenario(Scene* scene) : mTopScene(scene), mCurrentScene(scene) {
-
+    this->mTopScene = scene;
+    this->mCurrentScene = scene;
 }
 
 void Scenario::add(Scene* scene) {
