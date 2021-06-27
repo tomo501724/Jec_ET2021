@@ -4,6 +4,12 @@
 class Scene
 {
 public:
+    int speed, distance;
+    
+    float kp;
+    float ki;
+    float kd;
+
     SceneCommands command;
     int time;
     Scene* next;
