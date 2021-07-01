@@ -4,12 +4,12 @@
 
 // 定義
 class WallMonitor {
+private:
+    ev3api::SonarSensor& mSonarSensor;
+    int mRange;
+
 public:
-    WallMonitor(SonarSensor& sonarSensor);
+    WallMonitor(ev3api::SonarSensor& sonarSensor);
     bool isInRange();
     void setRange(int range);
-
-private:
-    SonarSensor& mSonarSensor;
-    int mRange;
-}
+};
