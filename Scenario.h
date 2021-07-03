@@ -18,4 +18,10 @@ public:
     SceneCommands currentSceneCommand() const;
     uint32_t currentSceneTime() const;
     
+    float currentSceneSpeed();
+    float currentSceneKp();
+    float currentSceneKi();
+    float currentSceneKd();
+    float currentSceneDistance();
+    float currentSceneCommand();
 };

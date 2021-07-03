@@ -1,7 +1,8 @@
 #include "Scenario.h"
 
 Scenario::Scenario(Scene* scene) : mTopScene(scene), mCurrentScene(scene) {
-
+    this->mTopScene = scene;
+    this->mCurrentScene = scene;
 }
 
 void Scenario::add(Scene* scene) {
@@ -42,3 +43,15 @@ uint32_t Scenario::currentSceneTime() const {
     return (mCurrentScene == 0) ? 0 : mCurrentScene->time;
 }
 
+float currentSceneSpeed(){
+    return mCurrnetScene->speed;
+}
+float currentSceneKp(){
+    return mCurrentScene->kp;
+}
+float currentSceneKi(){
+    return mCurrentScene->ki;
+}
+float currentSceneKd(){
+    return mCurrnetScene->kd;
+}
