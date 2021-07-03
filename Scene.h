@@ -6,7 +6,7 @@ class Scene
 public:
     SceneCommands command;
     int time;
-    int speed
+    int speed;
     int distance;
     float kp;
     float ki;

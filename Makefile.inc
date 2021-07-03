@@ -5,7 +5,9 @@ APPL_CXXOBJS += Walker.o \
                 PID.o \
                 AdvancedSteering.o \
                 RunningDistance.o \
-                WallMonitor.o
+                WallMonitor.o \
+                Scenario.o \
+                Scene.o
 
 SRCLANG := c++
 
