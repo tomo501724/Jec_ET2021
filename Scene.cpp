@@ -1,6 +1,6 @@
 #include "Scene.h"
 
-Scene::Scene(SceneCommands command, int time)
-: command(command), time(time)
+Scene::Scene(SceneCommands command, int time, int distance, float kp, float ki, float kd)
+: command(command), time(time), time(time), distance(distance), kp(kp), ki(ki), kd(kd)
 {
 }
