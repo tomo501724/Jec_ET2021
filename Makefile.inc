@@ -7,7 +7,9 @@ APPL_CXXOBJS += Walker.o \
                 RunningDistance.o \
                 WallMonitor.o \
                 Scenario.o \
-                Scene.o
+                Scene.o \
+                SimpleTimer.o \
+                ScenarioTracer.o \
 
 SRCLANG := c++
 
