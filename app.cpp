@@ -23,7 +23,6 @@ using ev3api::Motor;
 //using ev3api::TouchSensor;
 using ev3api::Clock;
 
-//ColorSensor gColorSensor(PORT_2);
 Motor gLeftWheel(PORT_C);
 Motor gRightWheel(PORT_B);
 //TouchSensor gTouchSensor(PORT_1);
@@ -33,16 +32,16 @@ static Walker *gWalker;
 static LineTracer *gLineTracer;
 //static Starter *gStarter;
 //static LineTracerWithStarter *gLineTracerWithStarter;
-//static ScenarioTracer *gScenarioTracer;
-//static SimpleTimer *gSimpleTimer;
-//static Clock *gClock;
+static ScenarioTracer *gScenarioTracer;
+static SimpleTimer *gSimpleTimer;
+static Clock *gClock;
 static AdvancedSteering *gAdvancedSteering;
 static Color *gColor;
 
 static void userSystemCreate()
 {
     tslp_tsk(2 * 1000);
-    //gClock = new Clock();
+    gClock = new Clock();
     gAdvancedSteering = new AdvancedSteering(gLeftWheel, gRightWheel);
     gWalker = new Walker(gLeftWheel, gRightWheel, *gAdvancedSteering);
     gColor = new Color(PORT_2);
@@ -50,8 +49,8 @@ static void userSystemCreate()
     gLineTracer = new LineTracer(gLineMonitor, gWalker);
     //gStarter = new Starter(gTouchSensor);
     //gLineTracerWithStarter = new LineTracerWithStarter(gLineTracer, gStarter);
-    //gSimpleTimer = new SimpleTimer(gClock);
-    //gScenarioTracer = new ScenarioTracer(gWalker, gSimpleTimer);
+    gSimpleTimer = new SimpleTimer(gClock);
+    gScenarioTracer = new ScenarioTracer(gWalker, gSimpleTimer);
 
     ev3_led_set_color(LED_ORANGE);
 }
@@ -60,13 +59,13 @@ static void UserSystemDestroy()
     gLeftWheel.reset();
     gRightWheel.reset();
 
-    //delete gScenarioTracer;
+    delete gScenarioTracer;
     //delete gLineTracerWithStarter;
     delete gLineTracer;
     //delete gStarter;
     delete gLineMonitor;
     delete gWalker;
-    //delete gClock;
+    delete gClock;
     delete gAdvancedSteering;
     delete gColor;
 }

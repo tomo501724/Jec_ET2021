@@ -23,5 +23,4 @@ public:
     float currentSceneKi();
     float currentSceneKd();
     float currentSceneDistance();
-    float currentSceneCommand();
 };

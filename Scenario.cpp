@@ -43,15 +43,15 @@ uint32_t Scenario::currentSceneTime() const {
     return (mCurrentScene == 0) ? 0 : mCurrentScene->time;
 }
 
-float currentSceneSpeed(){
-    return mCurrnetScene->speed;
+float Scenario::currentSceneSpeed(){
+    return mCurrentScene->speed;
 }
-float currentSceneKp(){
+float Scenario::currentSceneKp(){
     return mCurrentScene->kp;
 }
-float currentSceneKi(){
+float Scenario::currentSceneKi(){
     return mCurrentScene->ki;
 }
-float currentSceneKd(){
-    return mCurrnetScene->kd;
+float Scenario::currentSceneKd(){
+    return mCurrentScene->kd;
 }

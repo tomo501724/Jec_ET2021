@@ -18,10 +18,11 @@ Walker::Walker(
         this->forward = 0;
         this->turn = 0;
         mRunningDistance = new RunningDistance(&leftWheel,&rightWheel);
+        LINETRACE_DISTANCE = 5000;
 }
 
 bool Walker::isGoal(){
-    return this->mRunningDistance->getRunDistance(); //ゴールまでの距離を比較する
+    return LINETRACE_DISTANCE < this->mRunningDistance->getRunDistance(); //ゴールまでの距離を比較する
 }
 void Walker::stop(){
     leftWheel.stop();
@@ -29,7 +30,7 @@ void Walker::stop(){
 }
 void Walker::run(){
     // 左右モーターに回転を指示する
-    
+    syslog(LOG_NOTICE ,"DISTANCE: %d", mRunningDistance->getRunDistance());
     mSteering.setPower(forward, turn);
 }
 
