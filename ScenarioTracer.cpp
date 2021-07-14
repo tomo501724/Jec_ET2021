@@ -24,8 +24,8 @@ void ScenarioTracer::modeChangeAction(){
     SceneCommands command = mScenario->currentSceneCommand();
     setCommand(command);
 
-    mSimpleTimer->setTime(mScenario->currentSceneTime());
-    mSimpleTimer->start();
+    //mSimpleTimer->setTime(mScenario->currentSceneTime());
+    //mSimpleTimer->start();
 }
 //UNDEFINEDの処理
 void ScenarioTracer::execUndefined()
