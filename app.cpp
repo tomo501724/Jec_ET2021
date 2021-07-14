@@ -11,6 +11,9 @@
 #include "Clock.h"
 #include "AdvancedSteering.h"
 #include "Color.h"
+#include "Scenario.h"
+#include "SceneCommands.h"
+#include "Scene.h"
 
 #if defined(BUILD_MODULE)
 #include "module_cfg.h"
@@ -52,6 +55,8 @@ static void userSystemCreate()
     gSimpleTimer = new SimpleTimer(gClock);
     gScenarioTracer = new ScenarioTracer(gWalker, gSimpleTimer);
 
+
+
     ev3_led_set_color(LED_ORANGE);
 }
 static void UserSystemDestroy()
@@ -68,6 +73,11 @@ static void UserSystemDestroy()
     delete gClock;
     delete gAdvancedSteering;
     delete gColor;
+}
+
+void init_scenario(intptr_t exinf)
+{
+    
 }
 
 void main_task(intptr_t unused)
