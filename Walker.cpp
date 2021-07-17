@@ -50,3 +50,11 @@ void Walker::setCommand(
 void Walker::setTurn(int turn){
     this->turn = turn;
 }
+
+void Walker::setForward(int power){
+    this->forward = power;
+}
+
+int Walker::getDistance(){
+    return mRunningDistance->getRunDistance();
+}
