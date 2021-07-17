@@ -31,6 +31,9 @@ public:
     void run();
     int calcDirection(bool isOnLine);
     bool isGoal();
+
+    int getDistance();
+    void setCommand(float kp, float ki, float kd, int power);
 };
 
 #endif  // EV3_APP_LINETRACER_H_
