@@ -11,7 +11,7 @@ class Walker
 private:
     ev3api::Motor &leftWheel, &rightWheel;
     AdvancedSteering& mSteering;
-    int forward, turn, LINETRACE_DISTANCE;
+    int forword, turn, LINETRACE_DISTANCE;
     RunningDistance* mRunningDistance;
 
 public:
@@ -27,6 +27,7 @@ public:
 
     void init();
     void run();
-    void setCommand(int forward, int turn);
+    void setCommand(int forword, int turn);
     void setTurn(int turn);
+    void setForword(int forword);
 };
