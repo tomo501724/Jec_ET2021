@@ -28,11 +28,11 @@ void Walker::stop(){
     leftWheel.stop();
     rightWheel.stop();
 
-    syslog(LOG_NOTICE ,"[STOP] DISTANCE: %d", mRunningDistance->getRunDistance());
+    //syslog(LOG_NOTICE ,"[STOP] DISTANCE: %d", mRunningDistance->getRunDistance());
 }
 void Walker::run(){
     // 左右モーターに回転を指示する
-    syslog(LOG_NOTICE ,"DISTANCE: %d", mRunningDistance->getRunDistance());
+    //syslog(LOG_NOTICE ,"DISTANCE: %d", mRunningDistance->getRunDistance());
     mSteering.setPower(forward, turn);
 }
 
