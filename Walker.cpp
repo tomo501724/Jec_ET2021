@@ -32,7 +32,7 @@ void Walker::stop(){
 }
 void Walker::run(){
     // 左右モーターに回転を指示する
-    syslog(LOG_NOTICE ,"DISTANCE: %d", mRunningDistance->getRunDistance());
+    //syslog(LOG_NOTICE ,"DISTANCE: %d", mRunningDistance->getRunDistance());
     mSteering.setPower(forward, turn);
 }
 
@@ -49,4 +49,8 @@ void Walker::setCommand(
 
 void Walker::setTurn(int turn){
     this->turn = turn;
+}
+
+int Walker::getRunningDistance() {
+    return mRunningDistance->getRunDistance();
 }

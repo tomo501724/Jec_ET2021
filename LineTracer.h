@@ -13,11 +13,13 @@
 #include "Walker.h"
 #include "PID.h"
 #include "TouchSensor.h"
+#include "Scenario.h"
 
 class LineTracer {
 private:
     LineMonitor* mLineMonitor;
     Walker* mWalker;
+    Scenario* mScenario;
     bool mIsInitialized;
     PID* mPID;
     ev3api::TouchSensor* mTouchSensor; 
@@ -25,7 +27,8 @@ private:
 
 public:
     LineTracer(LineMonitor* lineMonitor,
-               Walker* walker);
+               Walker* walker,
+               Scenario* scenario);
     ~LineTracer();
 
     void run();

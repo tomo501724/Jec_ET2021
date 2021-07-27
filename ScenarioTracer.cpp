@@ -1,9 +1,10 @@
 #include "ScenarioTracer.h"
 #include "Walker.h"
 
-ScenarioTracer::ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer) {
+ScenarioTracer::ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer, Scenario* scenario) {
     mWalker = walker;
     mSimpleTimer = simpleTimer;
+    mScenario = scenario;
 }
 
 void ScenarioTracer::initAction(){

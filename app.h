@@ -85,7 +85,7 @@ extern "C" {
 
 extern void main_task(intptr_t exinf);
 extern void tracer_task(intptr_t exinf);
-extern void init_scenario(intptr_t exinf);
+extern void init_scenario();
 #endif /* TOPPERS_MACRO_ONLY */
 
 #ifdef __cplusplus
