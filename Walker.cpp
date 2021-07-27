@@ -18,7 +18,7 @@ Walker::Walker(
         this->forward = 0;
         this->turn = 0;
         mRunningDistance = new RunningDistance(&leftWheel,&rightWheel);
-        LINETRACE_DISTANCE = 5880;
+        LINETRACE_DISTANCE = 5500;
 }
 
 bool Walker::isGoal(){
