@@ -29,5 +29,6 @@ public:
     void run();
     void setCommand(int forword, int turn);
     void setTurn(int turn);
-    void setForword(int forword);
+    int getDistance();
+    void setForward(int power);
 };

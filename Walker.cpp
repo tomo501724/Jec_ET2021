@@ -18,7 +18,7 @@ Walker::Walker(
         this->forword = 0;
         this->turn = 0;
         mRunningDistance = new RunningDistance(&leftWheel,&rightWheel);
-        LINETRACE_DISTANCE = 5880;
+        LINETRACE_DISTANCE = 5500;
 }
 
 bool Walker::isGoal(){
@@ -32,8 +32,8 @@ void Walker::stop(){
 }
 void Walker::run(){
     // 左右モーターに回転を指示する
-    syslog(LOG_NOTICE ,"DISTANCE: %d", mRunningDistance->getRunDistance());
-    mSteering.setPower(forword, turn);
+    //syslog(LOG_NOTICE ,"DISTANCE: %d", mRunningDistance->getRunDistance());
+    mSteering.setPower(forward, turn);
 }
 
 void Walker::init(){
@@ -51,6 +51,15 @@ void Walker::setTurn(int turn){
     this->turn = turn;
 }
 
+<<<<<<< HEAD
 void Walker::setForword(int forword) {
     this->forword = forword;
+=======
+void Walker::setForward(int power){
+    this->forward = power;
+}
+
+int Walker::getDistance(){
+    return mRunningDistance->getRunDistance();
+>>>>>>> MakeLineTrace
 }
