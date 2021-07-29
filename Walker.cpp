@@ -18,7 +18,7 @@ Walker::Walker(
         this->forward = 0;
         this->turn = 0;
         mRunningDistance = new RunningDistance(&leftWheel,&rightWheel);
-        LINETRACE_DISTANCE = 5880;
+        LINETRACE_DISTANCE = 5500;
 }
 
 bool Walker::isGoal(){
@@ -51,6 +51,10 @@ void Walker::setTurn(int turn){
     this->turn = turn;
 }
 
-int Walker::getRunningDistance() {
+void Walker::setForward(int power){
+    this->forward = power;
+}
+
+int Walker::getDistance(){
     return mRunningDistance->getRunDistance();
 }

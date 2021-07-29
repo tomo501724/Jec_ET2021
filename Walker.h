@@ -29,5 +29,6 @@ public:
     void run();
     void setCommand(int forward, int turn);
     void setTurn(int turn);
-    int getRunningDistance();
+    int getDistance();
+    void setForward(int power);
 };
