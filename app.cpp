@@ -51,7 +51,7 @@ static void userSystemCreate()
     gColor = new Color(PORT_2);
     gLineMonitor = new LineMonitor(*gColor);
 
-    init_scenario();
+    //init_scenario();
 
     gLineTracer = new LineTracer(gLineMonitor, gWalker, gScnario);
     //gStarter = new Starter(gTouchSensor);
@@ -82,8 +82,7 @@ static void UserSystemDestroy()
 
 void init_scenario()
 {
-    gScnario = new Scenario(new Scene(LINE_TRACE, 0, 5880, 70, 0.7f,  0.0f, 103.0f));
-    gScnario->add(new Scene(END, 0, 0, 0, 0, 0, 0));
+    
 }
 
 void main_task(intptr_t unused)
