@@ -70,7 +70,7 @@ bool LineTracer::isGoal() {
 
 void LineTracer::setCommand(float kp, float ki, float kd, int power){
     mPID->setPID(kp, ki, kd);
-    mWalker->setForward(power);
+    mWalker->setForward(100); //一時的にpoewrを100にしたり
 }
 
 int LineTracer::getDistance(){
