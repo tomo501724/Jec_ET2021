@@ -33,7 +33,7 @@ void Walker::stop(){
 void Walker::run(){
     // 左右モーターに回転を指示する
     //syslog(LOG_NOTICE ,"DISTANCE: %d", mRunningDistance->getRunDistance());
-    mSteering.setPower(forward, turn);
+    mSteering.setPower(forword, turn);
 }
 
 void Walker::init(){
@@ -51,15 +51,10 @@ void Walker::setTurn(int turn){
     this->turn = turn;
 }
 
-<<<<<<< HEAD
-void Walker::setForword(int forword) {
-    this->forword = forword;
-=======
 void Walker::setForward(int power){
-    this->forward = power;
+    this->forword = power;
 }
 
 int Walker::getDistance(){
     return mRunningDistance->getRunDistance();
->>>>>>> MakeLineTrace
 }
