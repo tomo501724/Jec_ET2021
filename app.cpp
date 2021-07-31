@@ -14,6 +14,7 @@
 #include "Scenario.h"
 #include "SceneCommands.h"
 #include "Scene.h"
+#include "etroboc_ext.h"
 
 #if defined(BUILD_MODULE)
 #include "module_cfg.h"
@@ -24,11 +25,13 @@
 using ev3api::ColorSensor;
 using ev3api::Motor;
 //using ev3api::TouchSensor;
+using ev3api::TouchSensor;
 using ev3api::Clock;
 
 Motor gLeftWheel(PORT_C);
 Motor gRightWheel(PORT_B);
 //TouchSensor gTouchSensor(PORT_1);
+TouchSensor gTouchSensor(PORT_1);
 
 static LineMonitor *gLineMonitor;
 static Walker *gWalker;
@@ -81,14 +84,24 @@ static void UserSystemDestroy()
 }
 
 void init_scenario()
+/*
+static void init_scenario()
 {
     
+}
+*/
+static void start_wait()
+{
+    while (!gTouchSensor.isPressed())
+    {}
+    syslog(LOG_NOTICE ,"START");
 }
 
 void main_task(intptr_t unused)
 {
     userSystemCreate();
     
+    start_wait();
     sta_cyc(CYC_TRACER);
     slp_tsk();
 
