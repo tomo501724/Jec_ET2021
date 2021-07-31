@@ -94,6 +94,7 @@ void main_task(intptr_t unused)
 
     stp_cyc(CYC_TRACER);
     UserSystemDestroy();
+    ETRoboc_notifyCompletedToSimulator();
     ext_tsk();
 }
 void tracer_task(intptr_t exinf)
