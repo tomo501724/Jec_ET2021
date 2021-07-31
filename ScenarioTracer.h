@@ -18,9 +18,11 @@ private:
     Walker* mWalker;
     Scenario* mScenario;
     SimpleTimer* mSimpleTimer;
+    WallMonitor* mWallMonitor;
 
     void initAction();
     void setCommand(SceneCommands command);
+    void setScenario(Scenario* scenario);
     void modeChangeAction();
 
     void execUndefined();

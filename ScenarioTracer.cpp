@@ -1,10 +1,11 @@
 #include "ScenarioTracer.h"
 #include "Walker.h"
 
-ScenarioTracer::ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer, Scenario* scenario) {
+ScenarioTracer::ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer, WallMonitor* wallMonitor, Scenario* scenario) {
     mWalker = walker;
     mSimpleTimer = simpleTimer;
     mScenario = scenario;
+    mWallMonitor = wallMonitor;
 }
 
 void ScenarioTracer::initAction(){
@@ -19,11 +20,21 @@ void ScenarioTracer::setCommand(SceneCommands command){
     }
     mWalker->setCommand(Walker::LOW,turn);
 }
-//シナリオとレーサーの振る舞いの実装
+
+void ScenarioTracer::setScenario(Scenario* scenario) {
+    mScenario = scenario;
+}
+
+//シナリオトレーサーの振る舞いの実装
 void ScenarioTracer::modeChangeAction(){
-    mScenario->next();
+    Scene* scene = mScenario->next();
     SceneCommands command = mScenario->currentSceneCommand();
     setCommand(command);
+    int range = mWallMonitor->isInRange();
+    mWallMonitor->setRange();
+    mWalker->setForword(scene->speed)
+
+    
 
     //mSimpleTimer->setTime(mScenario->currentSceneTime());
     //mSimpleTimer->start();

@@ -15,7 +15,7 @@ Walker::Walker(
     AdvancedSteering& steering)
     :leftWheel(leftWheel), rightWheel(rightWheel), mSteering(steering)
 {
-        this->forward = 0;
+        this->forword = 0;
         this->turn = 0;
         mRunningDistance = new RunningDistance(&leftWheel,&rightWheel);
         LINETRACE_DISTANCE = 5500;
@@ -42,8 +42,8 @@ void Walker::init(){
 }
 
 void Walker::setCommand(
-    int forward,int turn){
-        this->forward = forward;
+    int forword,int turn){
+        this->forword = forword;
         this->turn = turn;
 }
 
@@ -51,10 +51,15 @@ void Walker::setTurn(int turn){
     this->turn = turn;
 }
 
+<<<<<<< HEAD
+void Walker::setForword(int forword) {
+    this->forword = forword;
+=======
 void Walker::setForward(int power){
     this->forward = power;
 }
 
 int Walker::getDistance(){
     return mRunningDistance->getRunDistance();
+>>>>>>> MakeLineTrace
 }

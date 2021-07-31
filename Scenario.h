@@ -11,10 +11,7 @@ private:
 public:
     explicit Scenario(Scene* scene);
 
-    void add(Scene* scene);
-    Scene* top() const;
-    Scene* current() const;
-    Scene* next();
+    bool next();
     SceneCommands currentSceneCommand() const;
     uint32_t currentSceneTime() const;
     
