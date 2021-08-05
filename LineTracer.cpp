@@ -41,7 +41,7 @@ void LineTracer::run() {
         mIsInitialized = true;
     }
 
-    if (mWalker->getRunningDistance() > mScenario->currentSceneDistance())
+    if (mWalker->getDistance() > mScenario->currentSceneDistance())
     {
         mScenario->next();
     }
@@ -75,13 +75,13 @@ int LineTracer::calcDirection(bool isOnLine) {
 }
 
 bool LineTracer::isGoal() {
-    return mWalker->getRunningDistance() < mScenario->currentSceneDistance();
+    return mWalker->getDistance() < mScenario->currentSceneDistance();
 
 }
 
 void LineTracer::setCommand(float kp, float ki, float kd, int power){
     mPID->setPID(kp, ki, kd);
-    mWalker->setForward(power);
+    mWalker->setForword(power);
 }
 
 int LineTracer::getDistance(){

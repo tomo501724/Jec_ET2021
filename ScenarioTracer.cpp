@@ -27,12 +27,12 @@ void ScenarioTracer::setScenario(Scenario* scenario) {
 
 //シナリオトレーサーの振る舞いの実装
 void ScenarioTracer::modeChangeAction(){
-    Scene* scene = mScenario->next();
+    bool hasNext = mScenario->next();
     SceneCommands command = mScenario->currentSceneCommand();
     setCommand(command);
     int range = mWallMonitor->isInRange();
-    mWallMonitor->setRange();
-    mWalker->setForword(scene->speed)
+    mWallMonitor->setRange(range);
+    // mWalker->setForword(scene->speed);
 
     
 

@@ -4,6 +4,7 @@
 #include "Walker.h"
 #include "Scenario.h"
 #include "SimpleTimer.h"
+#include "WallMonitor.h"
 
 class ScenarioTracer
 {
@@ -30,6 +31,6 @@ private:
     void execWalking();
 
 public:
-    ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer, Scenario* scenario);
+    ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer, WallMonitor* wallMonitor, Scenario* scenario);
     void run();
 };

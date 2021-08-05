@@ -40,7 +40,7 @@ static SimpleTimer *gSimpleTimer;
 static Clock *gClock;
 static AdvancedSteering *gAdvancedSteering;
 static Color *gColor;
-static Scenario *gScnario;
+static Scenario *gScenario;
 
 static void userSystemCreate()
 {
@@ -53,11 +53,11 @@ static void userSystemCreate()
 
     //init_scenario();
 
-    gLineTracer = new LineTracer(gLineMonitor, gWalker, gScnario);
+    gLineTracer = new LineTracer(gLineMonitor, gWalker, gScenario);
     //gStarter = new Starter(gTouchSensor);
     //gLineTracerWithStarter = new LineTracerWithStarter(gLineTracer, gStarter);
     gSimpleTimer = new SimpleTimer(gClock);
-    gScenarioTracer = new ScenarioTracer(gWalker, gSimpleTimer, gScnario);
+    gScenarioTracer = new ScenarioTracer(gWalker, gSimpleTimer, gScenario);
 
     syslog(LOG_NOTICE ,"END");
 
@@ -77,7 +77,7 @@ static void UserSystemDestroy()
     delete gClock;
     delete gAdvancedSteering;
     delete gColor;
-    delete gScnario;
+    delete gScenario;
 }
 
 void init_scenario()

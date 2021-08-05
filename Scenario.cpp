@@ -7,7 +7,7 @@ Scenario::Scenario(Scene* scene) : mTopScene(scene), mCurrentScene(scene) {
 
 bool Scenario::next() {
     mCurrentScene++;
-    if (currentSceneCommand() == SceneCommands.END) {
+    if (currentSceneCommand() == END) {
         return false;
     } else {
         return true;
