@@ -43,7 +43,12 @@ void LineTracer::run() {
 
     if (mWalker->getDistance() > mScenario->currentSceneDistance())
     {
-        mScenario->next();
+        syslog(LOG_NOTICE ,"%d>%d",mWalker->getDistance(),mScenario->currentSceneDistance());
+        if (mScenario->next())
+        {
+            return;
+        }
+        
     }
     
     mPID->setPID(mScenario->currentSceneKp(),
@@ -52,8 +57,8 @@ void LineTracer::run() {
 
     // 走行体の向きを計算する
     int turn = mPID->calcControl(mTargetRGB - mLineMonitor->getRGB());
-    mWalker->setCommand(mScenario->currentSceneSpeed(), turn);
-
+    //mWalker->setCommand(mScenario->currentSceneSpeed(), turn);
+    mWalker->setCommand(100, turn);
     // 走行を行う
     mWalker->run();
 }

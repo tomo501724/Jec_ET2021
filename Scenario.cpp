@@ -5,9 +5,13 @@ Scenario::Scenario(Scene* scene) : mTopScene(scene), mCurrentScene(scene) {
     this->mCurrentScene = scene;
 }
 
+Scenario::Scenario(){
+    this->mTopScene = this->mCurrentScene = this->scenes;
+};
+
 bool Scenario::next() {
     mCurrentScene++;
-    if (currentSceneCommand() == SceneCommands.END) {
+    if (currentSceneCommand() == END) {
         return false;
     } else {
         return true;
@@ -23,7 +27,7 @@ uint32_t Scenario::currentSceneTime() const {
     return (mCurrentScene == 0) ? 0 : mCurrentScene->time;
 }
 
-float Scenario::currentSceneSpeed(){
+int Scenario::currentSceneSpeed(){
     return mCurrentScene->speed;
 }
 float Scenario::currentSceneKp(){
