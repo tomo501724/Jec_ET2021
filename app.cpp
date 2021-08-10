@@ -59,8 +59,8 @@ static void userSystemCreate()
     gScnario = new Scenario();
     gLineTracer = new LineTracer(gLineMonitor, gWalker, gScnario);
     gSimpleTimer = new SimpleTimer(gClock);
-    gScenarioTracer = new ScenarioTracer(gWalker, gSimpleTimer, gWallMonitor, gScnario);
     gWallMonitor = new WallMonitor(gSonarSensor);
+    gScenarioTracer = new ScenarioTracer(gWalker, gSimpleTimer, gWallMonitor, gScnario);
 
     ev3_led_set_color(LED_ORANGE);
 }

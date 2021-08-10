@@ -72,6 +72,9 @@ void ScenarioTracer::execGoStraight()
 {
     if (mWalker->getDistance() > mScenario->currentSceneDistance())
     {
+
+        syslog(LOG_NOTICE, "Change Scenario\n walker: %d\n scenario: %d", mWalker->getDistance(), mScenario->currentSceneDistance());
+
         mScenario->next();
         return;
     }

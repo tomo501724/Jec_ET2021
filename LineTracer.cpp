@@ -43,6 +43,9 @@ void LineTracer::run() {
 
     if (mWalker->getDistance() > mScenario->currentSceneDistance())
     {
+
+        syslog(LOG_NOTICE , "Change Scenario");
+
         mScenario->next();
         return;
     }
