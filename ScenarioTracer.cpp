@@ -1,15 +1,18 @@
 #include "ScenarioTracer.h"
 #include "Walker.h"
+#include "SceneCommands.h"
 
-ScenarioTracer::ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer, Scenario* scenario) {
+ScenarioTracer::ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer, WallMonitor* wallMonitor, Scenario* scenario) {
     mWalker = walker;
     mSimpleTimer = simpleTimer;
     mScenario = scenario;
+    mWallMonitor = wallMonitor;
 }
 
 void ScenarioTracer::initAction(){
     mWalker->init();
 }
+/*
 void ScenarioTracer::setCommand(SceneCommands command){
     int turn = 0;
     if (command == TURN_LEFT){
@@ -19,11 +22,26 @@ void ScenarioTracer::setCommand(SceneCommands command){
     }
     mWalker->setCommand(Walker::LOW,turn);
 }
-//シナリオとレーサーの振る舞いの実装
+
+void ScenarioTracer::setScenario(Scenario* scenario) {
+    mScenario = scenario;
+}
+
+//シナリオトレーサーの振る舞いの実装
 void ScenarioTracer::modeChangeAction(){
-    mScenario->next();
-    SceneCommands command = mScenario->currentSceneCommand();
-    setCommand(command);
+    bool hasNext = mScenario->next();
+    if (hasNext)
+    {
+        SceneCommands command = mScenario->currentSceneCommand();
+        setCommand(command);
+        int range = mWallMonitor->isInRange();
+        mWallMonitor->setRange(range);
+        mWalker->setForward(mScenario->currentSceneSpeed());
+    }
+    
+    
+
+    
 
     //mSimpleTimer->setTime(mScenario->currentSceneTime());
     //mSimpleTimer->start();
@@ -49,9 +67,31 @@ void ScenarioTracer::execWalking()
         modeChangeAction();
     }
 }
+*/
+void ScenarioTracer::execGoStraight()
+{
+    if (mWalker->getDistance() > mScenario->currentSceneDistance())
+    {
+        mScenario->next();
+        return;
+    }
+    
+    mWalker->setCommand(mScenario->currentSceneSpeed(), 0);
+}
+
+void ScenarioTracer::execTurnLeft()
+{
+
+}
+
+void ScenarioTracer::execTurnRight()
+{
+
+}
 
 void ScenarioTracer::run(){
-    switch(mState){
+    switch(mScenario->currentSceneCommand()){
+        /*
         case UNDEFINED:
             execUndefined();
             break;
@@ -60,6 +100,16 @@ void ScenarioTracer::run(){
             break;
         case WALKING:
             execWalking();
+            break;
+        */
+        case GO_STRAIGHT:
+            execGoStraight();
+            break;
+        case TURN_LEFT:
+            execTurnLeft();
+            break;
+        case TURN_RIGHT:
+            execTurnRight();
             break;
         default:
             break;

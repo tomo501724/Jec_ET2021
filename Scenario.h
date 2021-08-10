@@ -7,18 +7,19 @@ class Scenario {
 private:
     Scene* mTopScene;
     Scene* mCurrentScene;
+    Scene scenes[2] = {
+        {LINE_TRACE, 0, 6750, 100, 0.9f,  0.0f, 103.0f},
+        {END, 0, 0, 0, 0.0f, 0.0f, 0.0f}
+    };
 
 public:
     explicit Scenario(Scene* scene);
-
-    void add(Scene* scene);
-    Scene* top() const;
-    Scene* current() const;
-    Scene* next();
+    Scenario();
+    bool next();
     SceneCommands currentSceneCommand() const;
     uint32_t currentSceneTime() const;
     
-    float currentSceneSpeed();
+    int currentSceneSpeed();
     float currentSceneKp();
     float currentSceneKi();
     float currentSceneKd();

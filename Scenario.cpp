@@ -5,34 +5,18 @@ Scenario::Scenario(Scene* scene) : mTopScene(scene), mCurrentScene(scene) {
     this->mCurrentScene = scene;
 }
 
-void Scenario::add(Scene* scene) {
-    if (mTopScene == 0) {
-        mTopScene = scene;
+Scenario::Scenario(){
+    this->mTopScene = this->mCurrentScene = this->scenes;
+};
+
+bool Scenario::next() {
+    mCurrentScene++;
+    if (currentSceneCommand() == END) {
+        return false;
     } else {
-        Scene* s = mTopScene;
-        while(s->next != top()) {
-            s = s->next;
-        }
-        s->next = scene;
+        return true;
     }
-    scene->next = top();
-}
 
-Scene* Scenario::top() const {
-    return mTopScene;
-}
-
-Scene* Scenario::current() const {
-    return mCurrentScene;
-}
-
-Scene* Scenario::next() {
-    if (mCurrentScene != 0) {
-        mCurrentScene = mCurrentScene->next;
-    } else {
-        mCurrentScene = mTopScene;
-    }
-    return mCurrentScene;
 }
 
 SceneCommands Scenario::currentSceneCommand() const {
@@ -43,7 +27,7 @@ uint32_t Scenario::currentSceneTime() const {
     return (mCurrentScene == 0) ? 0 : mCurrentScene->time;
 }
 
-float Scenario::currentSceneSpeed(){
+int Scenario::currentSceneSpeed(){
     return mCurrentScene->speed;
 }
 float Scenario::currentSceneKp(){

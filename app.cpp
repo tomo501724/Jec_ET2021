@@ -14,6 +14,9 @@
 #include "Scenario.h"
 #include "SceneCommands.h"
 #include "Scene.h"
+#include "etroboc_ext.h"
+#include "WallMonitor.h"
+#include "SonarSensor.h"
 
 #if defined(BUILD_MODULE)
 #include "module_cfg.h"
@@ -23,12 +26,14 @@
 
 using ev3api::ColorSensor;
 using ev3api::Motor;
-//using ev3api::TouchSensor;
+using ev3api::TouchSensor;
 using ev3api::Clock;
+using ev3api::SonarSensor;
 
 Motor gLeftWheel(PORT_C);
 Motor gRightWheel(PORT_B);
-//TouchSensor gTouchSensor(PORT_1);
+TouchSensor gTouchSensor(PORT_1);
+SonarSensor gSonarSensor(PORT_3);
 
 static LineMonitor *gLineMonitor;
 static Walker *gWalker;
@@ -41,6 +46,7 @@ static Clock *gClock;
 static AdvancedSteering *gAdvancedSteering;
 static Color *gColor;
 static Scenario *gScnario;
+static WallMonitor *gWallMonitor;
 
 static void userSystemCreate()
 {
@@ -50,16 +56,11 @@ static void userSystemCreate()
     gWalker = new Walker(gLeftWheel, gRightWheel, *gAdvancedSteering);
     gColor = new Color(PORT_2);
     gLineMonitor = new LineMonitor(*gColor);
-
-    //init_scenario();
-
+    gScnario = new Scenario();
     gLineTracer = new LineTracer(gLineMonitor, gWalker, gScnario);
-    //gStarter = new Starter(gTouchSensor);
-    //gLineTracerWithStarter = new LineTracerWithStarter(gLineTracer, gStarter);
     gSimpleTimer = new SimpleTimer(gClock);
-    gScenarioTracer = new ScenarioTracer(gWalker, gSimpleTimer, gScnario);
-
-    syslog(LOG_NOTICE ,"END");
+    gScenarioTracer = new ScenarioTracer(gWalker, gSimpleTimer, gWallMonitor, gScnario);
+    gWallMonitor = new WallMonitor(gSonarSensor);
 
     ev3_led_set_color(LED_ORANGE);
 }
@@ -69,31 +70,33 @@ static void UserSystemDestroy()
     gRightWheel.reset();
 
     delete gScenarioTracer;
-    //delete gLineTracerWithStarter;
     delete gLineTracer;
-    //delete gStarter;
     delete gLineMonitor;
     delete gWalker;
     delete gClock;
     delete gAdvancedSteering;
     delete gColor;
     delete gScnario;
+    delete gWallMonitor;
 }
 
-void init_scenario()
+static void start_wait()
 {
-    
+    while (!gTouchSensor.isPressed())
+    {}
 }
 
 void main_task(intptr_t unused)
 {
     userSystemCreate();
     
+    start_wait();
     sta_cyc(CYC_TRACER);
     slp_tsk();
 
     stp_cyc(CYC_TRACER);
     UserSystemDestroy();
+    ETRoboc_notifyCompletedToSimulator();
     ext_tsk();
 }
 void tracer_task(intptr_t exinf)
@@ -107,7 +110,7 @@ void tracer_task(intptr_t exinf)
     {
         if (gScnario->currentSceneCommand() == LINE_TRACE)
         {
-            gLineTracer->run();   
+            gLineTracer->run();
         }
         else
         {
