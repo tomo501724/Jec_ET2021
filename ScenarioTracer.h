@@ -28,6 +28,6 @@ private:
     void execWalking();
 
 public:
-    ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer);
+    ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer, Scenario* scenario);
     void run();
 };

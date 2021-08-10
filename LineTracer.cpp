@@ -14,9 +14,11 @@
  * @param walker 走行
  */
 LineTracer::LineTracer(LineMonitor* lineMonitor,
-                       Walker* walker)
+                       Walker* walker,
+                       Scenario* scenario)
     : mLineMonitor(lineMonitor),
       mWalker(walker),
+      mScenario(scenario),
       mIsInitialized(false) 
 {
     mPID = new PID(0.7f,  0.0f, 103.0f);
@@ -39,9 +41,18 @@ void LineTracer::run() {
         mIsInitialized = true;
     }
 
+    if (mWalker->getRunningDistance() > mScenario->currentSceneDistance())
+    {
+        mScenario->next();
+    }
+    
+    mPID->setPID(mScenario->currentSceneKp(),
+                 mScenario->currentSceneKi(),
+                 mScenario->currentSceneKd());
+
     // 走行体の向きを計算する
     int turn = mPID->calcControl(mTargetRGB - mLineMonitor->getRGB());
-    mWalker->setCommand(Walker::HIGH, turn);
+    mWalker->setCommand(mScenario->currentSceneSpeed(), turn);
 
     // 走行を行う
     mWalker->run();
@@ -64,7 +75,7 @@ int LineTracer::calcDirection(bool isOnLine) {
 }
 
 bool LineTracer::isGoal() {
-    return mWalker->isGoal();
+    return mWalker->getRunningDistance() < mScenario->currentSceneDistance();
 
 }
 

@@ -36,7 +36,7 @@ Scene* Scenario::next() {
 }
 
 SceneCommands Scenario::currentSceneCommand() const {
-    return (mCurrentScene == 0) ? GO_STRAIGHT : mCurrentScene->command;
+    return mCurrentScene->command;
 }
 
 uint32_t Scenario::currentSceneTime() const {
@@ -54,4 +54,8 @@ float Scenario::currentSceneKi(){
 }
 float Scenario::currentSceneKd(){
     return mCurrentScene->kd;
+}
+
+int Scenario::currentSceneDistance() {
+    return mCurrentScene->distance;
 }

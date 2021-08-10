@@ -22,5 +22,5 @@ public:
     float currentSceneKp();
     float currentSceneKi();
     float currentSceneKd();
-    float currentSceneDistance();
+    int currentSceneDistance();
 };
