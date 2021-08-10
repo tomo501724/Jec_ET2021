@@ -72,6 +72,7 @@ void ScenarioTracer::execGoStraight()
 {
     if (mWalker->getDistance() > mScenario->currentSceneDistance())
     {
+        mWalker->resetDistance();
         mScenario->next();
         return;
     }

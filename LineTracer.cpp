@@ -43,6 +43,7 @@ void LineTracer::run() {
 
     if (mWalker->getDistance() > mScenario->currentSceneDistance())
     {
+        mWalker->resetDistance();
         mScenario->next();
         return;
     }

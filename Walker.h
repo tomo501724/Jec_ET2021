@@ -32,4 +32,5 @@ public:
     void setTurn(int turn);
     int getDistance();
     void setForward(int power);
+    void resetDistance();
 };

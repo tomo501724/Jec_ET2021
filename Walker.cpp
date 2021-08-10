@@ -58,3 +58,7 @@ void Walker::setForward(int power){
 int Walker::getDistance(){
     return mRunningDistance->getRunDistance();
 }
+
+void Walker::resetDistance() {
+    mRunningDistance->resetDistance();
+}
