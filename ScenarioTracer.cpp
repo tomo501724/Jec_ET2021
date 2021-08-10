@@ -1,5 +1,6 @@
 #include "ScenarioTracer.h"
 #include "Walker.h"
+#include "SceneCommands.h"
 
 ScenarioTracer::ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer, WallMonitor* wallMonitor, Scenario* scenario) {
     mWalker = walker;
@@ -11,6 +12,7 @@ ScenarioTracer::ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer, WallMon
 void ScenarioTracer::initAction(){
     mWalker->init();
 }
+/*
 void ScenarioTracer::setCommand(SceneCommands command){
     int turn = 0;
     if (command == TURN_LEFT){
@@ -65,9 +67,31 @@ void ScenarioTracer::execWalking()
         modeChangeAction();
     }
 }
+*/
+void ScenarioTracer::execGoStraight()
+{
+    if (mWalker->getDistance() > mScenario->currentSceneDistance())
+    {
+        mScenario->next();
+        return;
+    }
+    
+    mWalker->setCommand(mScenario->currentSceneSpeed(), 0);
+}
+
+void ScenarioTracer::execTurnLeft()
+{
+    
+}
+
+void ScenarioTracer::execTurnRight()
+{
+
+}
 
 void ScenarioTracer::run(){
-    switch(mState){
+    switch(mScenario->currentSceneCommand()){
+        /*
         case UNDEFINED:
             execUndefined();
             break;
@@ -76,6 +100,16 @@ void ScenarioTracer::run(){
             break;
         case WALKING:
             execWalking();
+            break;
+        */
+        case GO_STRAIGHT:
+            execGoStraight();
+            break;
+        case TURN_LEFT:
+            execTurnLeft();
+            break;
+        case TURN_RIGHT:
+            execTurnRight();
             break;
         default:
             break;

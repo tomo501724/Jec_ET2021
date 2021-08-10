@@ -43,12 +43,8 @@ void LineTracer::run() {
 
     if (mWalker->getDistance() > mScenario->currentSceneDistance())
     {
-        syslog(LOG_NOTICE ,"%d>%d",mWalker->getDistance(),mScenario->currentSceneDistance());
-        if (mScenario->next())
-        {
-            return;
-        }
-        
+        mScenario->next();
+        return;
     }
     
     mPID->setPID(mScenario->currentSceneKp(),

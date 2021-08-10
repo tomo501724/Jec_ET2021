@@ -15,13 +15,16 @@ private:
         INITIAL,
         WALKING
     };
-    State mState;
+    //State mState;
     Walker* mWalker;
     Scenario* mScenario;
     SimpleTimer* mSimpleTimer;
     WallMonitor* mWallMonitor;
 
+    bool mIsInitialized;
+
     void initAction();
+    /*
     void setCommand(SceneCommands command);
     void setScenario(Scenario* scenario);
     void modeChangeAction();
@@ -29,6 +32,10 @@ private:
     void execUndefined();
     void execInitial();
     void execWalking();
+    */
+    void execGoStraight();
+    void execTurnRight();
+    void execTurnLeft();
 
 public:
     ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer, WallMonitor* wallMonitor, Scenario* scenario);
