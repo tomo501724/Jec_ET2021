@@ -82,7 +82,7 @@ bool LineTracer::isGoal() {
 
 void LineTracer::setCommand(float kp, float ki, float kd, int power){
     mPID->setPID(kp, ki, kd);
-    mWalker->setForward(power);
+    mWalker->setForword(power);
 }
 
 int LineTracer::getDistance(){

@@ -17,7 +17,7 @@ Walker::Walker(
 {
         this->forword = 0;
         this->turn = 0;
-        mRunningDistance = new RunningDistance(&leftWheel,&rightWheel);
+        mRunningDistance = new Tripmeter(&leftWheel,&rightWheel);
         LINETRACE_DISTANCE = 5500;
 }
 

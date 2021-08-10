@@ -81,7 +81,7 @@ void ScenarioTracer::execGoStraight()
 
 void ScenarioTracer::execTurnLeft()
 {
-    
+
 }
 
 void ScenarioTracer::execTurnRight()

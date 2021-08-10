@@ -4,6 +4,7 @@
 #include "Motor.h"
 #include "AdvancedSteering.h"
 #include "RunningDistance.h"
+#include "Tripmeter.h"
 
 class Walker
 {
@@ -12,7 +13,7 @@ private:
     ev3api::Motor &leftWheel, &rightWheel;
     AdvancedSteering& mSteering;
     int forword, turn, LINETRACE_DISTANCE;
-    RunningDistance* mRunningDistance;
+    Tripmeter* mRunningDistance;
 
 public:
     static const int LOW, NORMAL, HIGH, RIGHT, LEFT;
