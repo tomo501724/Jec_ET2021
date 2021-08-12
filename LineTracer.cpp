@@ -46,6 +46,7 @@ void LineTracer::run() {
 
         syslog(LOG_NOTICE , "Change Scenario");
 
+        mWalker->resetDistance();
         mScenario->next();
         return;
     }
