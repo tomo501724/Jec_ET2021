@@ -9,7 +9,7 @@ private:
     Scene* mCurrentScene;
     Scene scenes[3] = {
         {LINE_TRACE, 0, 6750, 100, 0.9f,  0.0f, 103.0f},
-        {GO_STRAIGHT, 0, 1000, 70, 0.9f,  0.0f, 103.0f},
+        {GO_STRAIGHT, 0, 1000, 50, 0.9f,  0.0f, 103.0f},
         {END, 0, 0, 0, 0.0f, 0.0f, 0.0f}
     };
 
