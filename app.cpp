@@ -57,10 +57,11 @@ static void userSystemCreate()
     gColor = new Color(PORT_2);
     gLineMonitor = new LineMonitor(*gColor);
     gScnario = new Scenario();
-    gLineTracer = new LineTracer(gLineMonitor, gWalker, gScnario);
-    gSimpleTimer = new SimpleTimer(gClock);
-    gScenarioTracer = new ScenarioTracer(gWalker, gSimpleTimer, gWallMonitor, gScnario);
     gWallMonitor = new WallMonitor(gSonarSensor);
+    gSimpleTimer = new SimpleTimer(gClock);
+    gLineTracer = new LineTracer(gLineMonitor, gWalker, gScnario);
+    gScenarioTracer = new ScenarioTracer(gWalker, gSimpleTimer, gWallMonitor, gScnario);
+    
 
     ev3_led_set_color(LED_ORANGE);
 }

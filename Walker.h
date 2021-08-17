@@ -33,4 +33,6 @@ public:
     int getDistance();
     void setForward(int power);
     void resetDistance();
+    int getLeftWheelCount();
+    int getRightWheelCount();
 };

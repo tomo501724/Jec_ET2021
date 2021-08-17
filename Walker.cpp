@@ -62,3 +62,11 @@ int Walker::getDistance(){
 void Walker::resetDistance() {
     mRunningDistance->resetDistance();
 }
+
+int Walker::getLeftWheelCount() {
+    return leftWheel.getCount();
+}
+
+int Walker::getRightWheelCount() {
+    return rightWheel.getCount();
+}
