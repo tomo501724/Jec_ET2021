@@ -13,15 +13,18 @@ private:
     {
         UNDEFINED,
         INITIAL,
-        WALKING
+        WALKING,
+        TURNING
     };
-    //State mState;
+    State mState;
     Walker* mWalker;
     Scenario* mScenario;
     SimpleTimer* mSimpleTimer;
     WallMonitor* mWallMonitor;
 
     bool mIsInitialized;
+
+    int lCount, rCount;
 
     void initAction();
     /*

@@ -7,6 +7,7 @@ ScenarioTracer::ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer, WallMon
     mSimpleTimer = simpleTimer;
     mScenario = scenario;
     mWallMonitor = wallMonitor;
+    mState = UNDEFINED;
 }
 
 void ScenarioTracer::initAction(){
@@ -81,6 +82,7 @@ void ScenarioTracer::execGoStraight()
     }
     
     mWalker->setCommand(mScenario->currentSceneSpeed(), 0);
+    mWalker->run();
 }
 
 void ScenarioTracer::execTurnLeft()
@@ -90,7 +92,20 @@ void ScenarioTracer::execTurnLeft()
 
 void ScenarioTracer::execTurnRight()
 {
+    if (mState != TURNING)
+    {
+        mState = TURNING;
+        lCount = mWalker->getLeftWheelCount() + 180;
+        rCount = mWalker->getRightWheelCount() - 180;
+    }
 
+    if (mWalker->getLeftWheelCount() >= lCount && mWalker->getRightWheelCount() <= rCount)
+    {
+        mState = UNDEFINED;
+        mScenario->next();
+    }
+    
+    mWalker->turnRight(mScenario->currentSceneSpeed());
 }
 
 void ScenarioTracer::run(){

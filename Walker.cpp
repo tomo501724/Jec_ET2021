@@ -62,3 +62,21 @@ int Walker::getDistance(){
 void Walker::resetDistance() {
     mRunningDistance->resetDistance();
 }
+
+int Walker::getLeftWheelCount() {
+    return leftWheel.getCount();
+}
+
+int Walker::getRightWheelCount() {
+    return rightWheel.getCount();
+}
+
+void Walker::turnLeft(int power) {
+    leftWheel.setPWM(-power);
+    rightWheel.setPWM(power);
+}
+
+void Walker::turnRight(int power) {
+    leftWheel.setPWM(power);
+    rightWheel.setPWM(-power);
+}
