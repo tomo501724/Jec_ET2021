@@ -79,6 +79,7 @@ void ScenarioTracer::execGoStraight()
     }
     
     mWalker->setCommand(mScenario->currentSceneSpeed(), 0);
+    mWalker->run();
 }
 
 void ScenarioTracer::execTurnLeft()
@@ -101,7 +102,7 @@ void ScenarioTracer::execTurnRight()
         mScenario->next();
     }
     
-    mWalker->setCommand(mScenario->currentSceneSpeed(), 100);
+    mWalker->turnRight(mScenario->currentSceneSpeed());
 }
 
 void ScenarioTracer::run(){
