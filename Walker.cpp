@@ -70,3 +70,13 @@ int Walker::getLeftWheelCount() {
 int Walker::getRightWheelCount() {
     return rightWheel.getCount();
 }
+
+void Walker::turnLeft(int power) {
+    leftWheel.setPWM(-power);
+    rightWheel.setPWM(power);
+}
+
+void Walker::turnRight(int power) {
+    leftWheel.setPWM(power);
+    rightWheel.setPWM(-power);
+}
