@@ -8,9 +8,9 @@ private:
     Scene* mTopScene;
     Scene* mCurrentScene;
     Scene scenes[6] = {
-        {LINE_TRACE, 0, 6750, 100, 0.9f,  0.0f, 103.0f},
+        {LINE_TRACE, 0, 6600, 100, 0.9f,  0.0f, 103.0f},
         {GO_STRAIGHT, 0, 350, 1, 0.0f,  0.0f, 0.0f},
-        {LINE_TRACE, 0, 800, 1, 0.9f,  0.0f, 103.0f},
+        {LINE_TRACE, 0, 720, 1, 0.9f,  0.0f, 103.0f},
         {GO_STRAIGHT, 0, 200, 1, 0.0f,  0.0f, 0.0f},
         {LINE_TRACE, 0, 360, 1, 0.9f,  0.0f, 103.0f},
         {END, 0, 0, 0, 0.0f, 0.0f, 0.0f}
