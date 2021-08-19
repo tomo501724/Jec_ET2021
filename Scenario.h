@@ -7,9 +7,10 @@ class Scenario {
 private:
     Scene* mTopScene;
     Scene* mCurrentScene;
-    Scene scenes[3] = {
+    Scene scenes[4] = {
         {LINE_TRACE, 0, 6750, 100, 0.9f,  0.0f, 103.0f},
-        {TURN_RIGHT, 0, 0, 50, 0.0f, 0.0f, 0.0f},
+        {GO_STRAIGHT, 0, 200, 20, 0.0f, 0.0f, 0.0f},
+        {TURN_RIGHT, 0, 0, 20, 0.0f, 0.0f, 0.0f},
         {END, 0, 0, 0, 0.0f, 0.0f, 0.0f}
     };
 
