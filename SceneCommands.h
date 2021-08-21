@@ -5,5 +5,6 @@ enum SceneCommands {
     TURN_LEFT,
     TURN_RIGHT,
     LINE_TRACE,
+    WALL_DETECTION,
     END
 };

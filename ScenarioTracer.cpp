@@ -106,6 +106,23 @@ void ScenarioTracer::execTurnRight()
     }
     
     mWalker->turnRight(mScenario->currentSceneSpeed());
+    mWalker->run();
+}
+
+void ScenarioTracer::execWallDitecton()
+{
+    if (mWallMonitor->isInRange(32) || mWalker->getDistance() > mScenario->currentSceneDistance())
+    {
+
+        syslog(LOG_NOTICE, "Change Scenario\n walker: %d\n scenario: %d", mWalker->getDistance(), mScenario->currentSceneDistance());
+
+        mWalker->resetDistance();
+        mScenario->next();
+        return;
+    }
+    
+    mWalker->setCommand(mScenario->currentSceneSpeed(), 0);
+    mWalker->run();
 }
 
 void ScenarioTracer::run(){
@@ -130,6 +147,10 @@ void ScenarioTracer::run(){
         case TURN_RIGHT:
             execTurnRight();
             break;
+        case WALL_DETECTION:
+            execWallDitecton();
+            break;
+
         default:
             break;
     }

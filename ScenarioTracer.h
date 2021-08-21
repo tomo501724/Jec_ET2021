@@ -39,6 +39,7 @@ private:
     void execGoStraight();
     void execTurnRight();
     void execTurnLeft();
+    void execWallDitecton();
 
 public:
     ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer, WallMonitor* wallMonitor, Scenario* scenario);
