@@ -14,6 +14,8 @@ LineMonitor::LineMonitor(Color& color) : mColor(color) {
 }
 
 int LineMonitor::getRGB() {
+    //rgb_raw_t raw = mColor.getNaturalRGB();
+    //syslog(LOG_NOTICE ,"R:%d G:%d B:%d", raw.r, raw.g, raw.b);
     mColor.update();
     return mColor.getTotalRGB();
 }
