@@ -45,7 +45,7 @@ static SimpleTimer *gSimpleTimer;
 static Clock *gClock;
 static AdvancedSteering *gAdvancedSteering;
 static Color *gColor;
-static Scenario *gScnario;
+static Scenario *gScenario;
 static WallMonitor *gWallMonitor;
 
 static void userSystemCreate()
@@ -56,11 +56,11 @@ static void userSystemCreate()
     gWalker = new Walker(gLeftWheel, gRightWheel, *gAdvancedSteering);
     gColor = new Color(PORT_2);
     gLineMonitor = new LineMonitor(*gColor);
-    gScnario = new Scenario();
+    gScenario = new Scenario();
     gWallMonitor = new WallMonitor(gSonarSensor);
     gSimpleTimer = new SimpleTimer(gClock);
-    gLineTracer = new LineTracer(gLineMonitor, gWalker, gScnario);
-    gScenarioTracer = new ScenarioTracer(gWalker, gSimpleTimer, gWallMonitor, gScnario);
+    gLineTracer = new LineTracer(gLineMonitor, gWalker, gScenario, gSimpleTimer);
+    gScenarioTracer = new ScenarioTracer(gWalker, gSimpleTimer, gWallMonitor, gScenario);
     
 
     ev3_led_set_color(LED_ORANGE);
@@ -77,7 +77,7 @@ static void UserSystemDestroy()
     delete gClock;
     delete gAdvancedSteering;
     delete gColor;
-    delete gScnario;
+    delete gScenario;
     delete gWallMonitor;
 }
 
@@ -85,6 +85,7 @@ static void start_wait()
 {
     while (!gTouchSensor.isPressed())
     {}
+    gClock->reset();
 }
 
 void main_task(intptr_t unused)
@@ -102,14 +103,14 @@ void main_task(intptr_t unused)
 }
 void tracer_task(intptr_t exinf)
 {
-    if (ev3_button_is_pressed(BACK_BUTTON) || gScnario->currentSceneCommand() == END)
+    if (ev3_button_is_pressed(BACK_BUTTON) || gScenario->currentSceneCommand() == END)
     {
         wup_tsk(MAIN_TASK);
         syslog(LOG_NOTICE ,"END");
     }
     else
     {
-        if (gScnario->currentSceneCommand() == LINE_TRACE)
+        if (LINE_TRACE <= gScenario->currentSceneCommand() && gScenario->currentSceneCommand() <= LINE_TRACE_ON_BLUE)
         {
             gLineTracer->run();
         }
