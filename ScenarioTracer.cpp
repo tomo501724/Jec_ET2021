@@ -1,13 +1,14 @@
 #include "ScenarioTracer.h"
 #include "Walker.h"
 #include "SceneCommands.h"
+#include "SimpleTimer.h"
 
-ScenarioTracer::ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer, WallMonitor* wallMonitor, Scenario* scenario) {
+ScenarioTracer::ScenarioTracer(Walker* walker, SimpleTimer* timer, WallMonitor* wallMonitor, Scenario* scenario) {
     mWalker = walker;
-    mSimpleTimer = simpleTimer;
     mScenario = scenario;
     mWallMonitor = wallMonitor;
     mState = UNDEFINED;
+    mTimer = timer;
 }
 
 void ScenarioTracer::initAction(){
@@ -85,18 +86,40 @@ void ScenarioTracer::execGoStraight()
     mWalker->run();
 }
 
+void ScenarioTracer::execGoStraightUntilTime() {
+    if (mTimer->isStarted())
+    {
+        if (mTimer->isTimeOut())
+        {
+            mTimer->stop();
+            mScenario->next();
+            return;
+        }
+    }
+    else
+    {
+        mTimer->setTime(mScenario->currentSceneTime());
+        mTimer->start();
+    }
+    execGoStraight();
+}
+
 void ScenarioTracer::execTurnLeft()
 {
-
+    execTurn(-180);
 }
 
 void ScenarioTracer::execTurnRight()
 {
+    execTurn(180);
+}
+
+void ScenarioTracer::execTurn(int turn) {
     if (mState != TURNING)
     {
         mState = TURNING;
-        lCount = mWalker->getLeftWheelCount() + 180;
-        rCount = mWalker->getRightWheelCount() - 180;
+        lCount = mWalker->getLeftWheelCount() + turn;
+        rCount = mWalker->getRightWheelCount() - turn;
     }
 
     if (mWalker->getLeftWheelCount() >= lCount && mWalker->getRightWheelCount() <= rCount)
@@ -141,16 +164,20 @@ void ScenarioTracer::run(){
         case GO_STRAIGHT:
             execGoStraight();
             break;
+        case GO_STRAIGHT_UNTIL_TIME:
+            execGoStraightUntilTime();
+            break;
         case TURN_LEFT:
             execTurnLeft();
             break;
         case TURN_RIGHT:
             execTurnRight();
             break;
+        case TURN:
+            execTurn(mScenario->currentSceneDistance());
         case WALL_DETECTION:
             execWallDitecton();
             break;
-
         default:
             break;
     }

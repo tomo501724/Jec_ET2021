@@ -19,7 +19,7 @@ private:
     State mState;
     Walker* mWalker;
     Scenario* mScenario;
-    SimpleTimer* mSimpleTimer;
+    SimpleTimer* mTimer;
     WallMonitor* mWallMonitor;
 
     bool mIsInitialized;
@@ -37,8 +37,10 @@ private:
     void execWalking();
     */
     void execGoStraight();
+    void execGoStraightUntilTime();
     void execTurnRight();
     void execTurnLeft();
+    void execTurn(int turn);
     void execWallDitecton();
 
 public:
