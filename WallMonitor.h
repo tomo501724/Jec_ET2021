@@ -6,10 +6,8 @@
 class WallMonitor {
 private:
     ev3api::SonarSensor& mSonarSensor;
-    int mRange;
 
 public:
     WallMonitor(ev3api::SonarSensor& sonarSensor);
-    bool isInRange();
-    void setRange(int range);
+    bool isInRange(int range);
 };

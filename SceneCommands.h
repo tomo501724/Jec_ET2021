@@ -4,6 +4,10 @@ enum SceneCommands {
     GO_STRAIGHT,
     TURN_LEFT,
     TURN_RIGHT,
+    WALL_DETECTION,
     LINE_TRACE,
+    LINE_TRACE_UNTIL_TIME,
+    LINE_TRACE_UNTIL_BLUE,
+    LINE_TRACE_ON_BLUE,
     END
 };
