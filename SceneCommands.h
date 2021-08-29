@@ -2,8 +2,10 @@
 
 enum SceneCommands {
     GO_STRAIGHT,
+    GO_STRAIGHT_UNTIL_TIME,
     TURN_LEFT,
     TURN_RIGHT,
+    TURN,
     WALL_DETECTION,
     LINE_TRACE,
     LINE_TRACE_UNTIL_TIME,

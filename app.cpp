@@ -79,6 +79,7 @@ static void UserSystemDestroy()
     delete gColor;
     delete gScenario;
     delete gWallMonitor;
+    delete gSimpleTimer;
 }
 
 static void start_wait()
