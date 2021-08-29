@@ -126,11 +126,16 @@ void ScenarioTracer::execTurn(int turn) {
     if (mWalker->getLeftWheelCount() >= lCount && mWalker->getRightWheelCount() <= rCount)
     {
         mState = UNDEFINED;
+        mWalker->resetDistance();
         mScenario->next();
     }
     
-    mWalker->turnRight(mScenario->currentSceneSpeed());
-    mWalker->run();
+    if (0 < turn) {
+        mWalker->turnRight(mScenario->currentSceneSpeed());
+    }
+    else if (turn < 0) {
+        mWalker->turnLeft(mScenario->currentSceneSpeed());
+    }
 }
 
 void ScenarioTracer::execWallDitecton()
@@ -176,6 +181,7 @@ void ScenarioTracer::run(){
             break;
         case TURN:
             execTurn(mScenario->currentSceneDistance());
+            break;
         case WALL_DETECTION:
             execWallDitecton();
             break;
