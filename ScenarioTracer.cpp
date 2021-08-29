@@ -91,6 +91,7 @@ void ScenarioTracer::execGoStraightUntilTime() {
     {
         if (mTimer->isTimeOut())
         {
+            mWalker->resetDistance();
             mTimer->stop();
             mScenario->next();
             return;

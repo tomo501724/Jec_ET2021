@@ -157,6 +157,7 @@ void LineTracer::execLineTraceUntilTime() {
     {
         if (mTimer->isTimeOut())
         {
+            mWalker->resetDistance();
             mTimer->stop();
             mScenario->next();
             return;
