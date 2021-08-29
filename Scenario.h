@@ -7,12 +7,14 @@ class Scenario {
 private:
     Scene* mTopScene;
     Scene* mCurrentScene;
-    Scene scenes[4] = {
-        {LINE_TRACE_UNTIL_TIME, 173U * 100000U, 67700, 100, 0.9f,  0.0f, 103.0f},
-        {GO_STRAIGHT_UNTIL_TIME, 5U * 1000000U, 3000, 20, 0.9f,  0.0f, 103.0f},
-        {LINE_TRACE_UNTIL_TIME, 5U * 1000000U, 790, 20, 0.9f,  0.0f, 103.0f},
-        /*{GO_STRAIGHT, 0, 200, 40, 0.0f,  0.0f, 0.0f},
-        {LINE_TRACE, 0, 320, 20, 0.9f,  0.0f, 103.0f},
+    Scene scenes[7] = {
+        {LINE_TRACE_UNTIL_TIME, 150U * 100000U, 67700, 100, 0.9f,  0.0f, 103.0f},
+        {LINE_TRACE_UNTIL_TIME, 1U * 1000000U, 67700, 90, 0.9f,  0.0f, 103.0f},
+        {LINE_TRACE_UNTIL_TIME, 150U * 10000U, 67700, 100, 0.9f,  0.0f, 103.0f},
+        {GO_STRAIGHT, 0, 300, 20, 0.9f,  0.0f, 103.0f},
+        {LINE_TRACE_UNTIL_TIME, 8U * 1000000U, 790, 20, 0.9f,  0.0f, 103.0f},
+        {GO_STRAIGHT, 0, 200, 40, 0.9f,  0.0f, 103.0f},
+        /*{LINE_TRACE, 0, 320, 20, 0.9f,  0.0f, 103.0f},
         {GO_STRAIGHT, 0, 100, 40, 0.0f, 0.0f, 0.0f},
         {LINE_TRACE, 0, 570, 20, 0.9f, 0.0f, 103.0f},
         {GO_STRAIGHT, 0, 40, 40, 0.0f, 0.0f, 0.0f},*/
