@@ -7,13 +7,16 @@ class Scenario {
 private:
     Scene* mTopScene;
     Scene* mCurrentScene;
-    Scene scenes[7] = {
-        {LINE_TRACE_UNTIL_TIME, 140U * 100000U, 67700, 100, 0.9f,  0.0f, 103.0f},
-        {LINE_TRACE_UNTIL_TIME, 2U * 1000000U, 67700, 70, 0.9f,  0.0f, 103.0f},
-        {LINE_TRACE_UNTIL_TIME, 180U * 10000U, 67700, 100, 0.9f,  0.0f, 103.0f},
-        {GO_STRAIGHT, 0, 300, 20, 0.9f,  0.0f, 103.0f},
-        {LINE_TRACE_UNTIL_TIME, 76U * 100000U, 790, 20, 0.9f,  0.0f, 103.0f},
-        {GO_STRAIGHT, 0, 200, 20, 0.9f,  0.0f, 103.0f},
+    Scene scenes[2] = {
+        
+        {LINE_TRACE_ON_BLUE, 140U * 100000U, 10470, 100, 0.9f,  0.0f, 103.0f},
+        //{LINE_TRACE_UNTIL_TIME, 2U * 1000000U, 67700, 70, 0.9f,  0.0f, 103.0f},
+        //{LINE_TRACE_UNTIL_TIME, 180U * 10000U, 67700, 100, 0.9f,  0.0f, 103.0f},
+        //{LINE_TRACE_ON_BLUE, 0, 1000, 20, 0.5f,  0.0f, 103.0f},
+        //{LINE_TRACE_UNTIL_TIME, 76U * 100000U, 790, 20, 0.9f,  0.0f, 103.0f},
+        //{GO_STRAIGHT, 0, 200, 20, 0.9f,  0.0f, 103.0f},
+        
+        //{WALL_DETECTION, 0, 30000, 80, 0.9f,  0.0f, 103.0f},
         /*{LINE_TRACE_UNTIL_TIME, 5U * 1000000U, 3200, 20, 0.9f,  0.0f, 103.0f},
         {GO_STRAIGHT, 0, 100, 20, 0.0f, 0.0f, 0.0f},
         {LINE_TRACE_UNTIL_TIME, 0, 570, 20, 0.9f, 0.0f, 103.0f},
