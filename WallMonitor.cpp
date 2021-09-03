@@ -4,10 +4,6 @@ WallMonitor::WallMonitor(ev3api::SonarSensor& sonarSensor) : mSonarSensor(sonarS
 
 }
 
-bool WallMonitor::isInRange() {
-    return mRange >= mSonarSensor.getDistance();
-}
-
-void WallMonitor::setRange(int range) {
-    this->mRange = range;
+bool WallMonitor::isInRange(int range) {
+    return range >= mSonarSensor.getDistance();
 }

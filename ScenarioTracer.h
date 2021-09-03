@@ -13,15 +13,18 @@ private:
     {
         UNDEFINED,
         INITIAL,
-        WALKING
+        WALKING,
+        TURNING
     };
-    //State mState;
+    State mState;
     Walker* mWalker;
     Scenario* mScenario;
-    SimpleTimer* mSimpleTimer;
+    SimpleTimer* mTimer;
     WallMonitor* mWallMonitor;
 
     bool mIsInitialized;
+
+    int lCount, rCount;
 
     void initAction();
     /*
@@ -34,8 +37,11 @@ private:
     void execWalking();
     */
     void execGoStraight();
+    void execGoStraightUntilTime();
     void execTurnRight();
     void execTurnLeft();
+    void execTurn(int turn);
+    void execWallDitecton();
 
 public:
     ScenarioTracer(Walker* walker, SimpleTimer* simpleTimer, WallMonitor* wallMonitor, Scenario* scenario);
