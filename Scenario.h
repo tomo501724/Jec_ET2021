@@ -7,7 +7,7 @@ class Scenario {
 private:
     Scene* mTopScene;
     Scene* mCurrentScene;
-    Scene scenes[5] = {
+    Scene scenes[8] = {
         /*
         {LINE_TRACE, 0, 6630, 100, 0.9f,  0.0f, 103.0f},
         {GO_STRAIGHT, 0, 370, 20, 0.0f,  0.0f, 0.0f},
@@ -18,9 +18,12 @@ private:
         */
         //{LINE_TRACE, 17000, 6630, 100, 0.9f,  0.0f, 103.0f},
         {LINE_TRACE_ON_BLUE, 175U * 100000U, 8150, 100, 0.9f,  0.0f, 103.0f},
-        {GO_STRAIGHT, 0, 330, 100, 0.0f, 0.0f, 0.0f},
-        {LINE_TRACE_ON_BLUE, 175U * 100000U, 400, 100, 0.9f,  0.0f, 103.0f},
-        {TURN, 175U * 100000U, 45, 100, 0.9f,  0.0f, 103.0f},
+        {GO_STRAIGHT, 0, 330, 50, 0.0f, 0.0f, 0.0f},
+        {LINE_TRACE_ON_BLUE, 175U * 100000U, 450, 100, 0.9f,  0.0f, 103.0f},
+        {TURN, 175U * 100000U, 95, 100, 0.9f,  0.0f, 103.0f},
+        {GO_STRAIGHT, 175U * 100000U, 50, 20, 0.9f,  0.0f, 103.0f},
+        {LINE_TRACE_ON_BLUE, 175U * 100000U, 250, 20, 0.9f,  0.0f, 103.0f},
+        {WALL_DETECTION, 175U * 100000U, 250, 20, 0.9f,  0.0f, 103.0f},
         //{LINE_TRACE_ON_BLUE, 0, 400, 10, 0.9f,  0.0f, 103.0f},
         //{LINE_TRACE_UNTIL_BLUE, 0, 300, 10, 0.9f,  0.0f, 103.0f},
         {END, 0, 0, 0, 0.0f, 0.0f, 0.0f}
