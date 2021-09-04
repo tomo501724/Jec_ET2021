@@ -3,6 +3,7 @@
 enum SceneCommands {
     GO_STRAIGHT,
     GO_STRAIGHT_UNTIL_TIME,
+    GO_STRAIGHT_UNTIL_YELLOW,
     TURN_LEFT,
     TURN_RIGHT,
     TURN,

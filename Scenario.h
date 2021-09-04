@@ -7,6 +7,7 @@ class Scenario {
 private:
     Scene* mTopScene;
     Scene* mCurrentScene;
+<<<<<<< HEAD
     Scene scenes[4] = {
         /*
         {LINE_TRACE, 0, 6630, 100, 0.9f,  0.0f, 103.0f},
@@ -24,6 +25,24 @@ private:
         //{TURN, 0, 100, 20, 0.9f,  0.0f, 103.0f},
         //{LINE_TRACE_ON_BLUE, 0, 400, 10, 0.9f,  0.0f, 103.0f},
         //{LINE_TRACE_UNTIL_BLUE, 0, 300, 10, 0.9f,  0.0f, 103.0f},
+=======
+    Scene scenes[3] = {
+        
+        {LINE_TRACE_UNTIL_TIME, 175U * 100000U, 67700, 100, 0.9f,  0.0f, 103.0f},
+        //{LINE_TRACE_UNTIL_BLUE, 0U, 65700, 70, 0.9f,  0.0f, 103.0f},
+        {LINE_TRACE_UNTIL_BLUE, 0U, 677000, 20, 0.9f,  0.0f, 103.0f},
+        //{LINE_TRACE_UNTIL_TIME, 180U * 10000U, 67700, 0, 0.9f,  0.0f, 103.0f},
+        
+        //{LINE_TRACE_ON_BLUE, 0, 1000, 20, 0.5f,  0.0f, 103.0f},
+        //{LINE_TRACE_UNTIL_TIME, 76U * 100000U, 790, 20, 0.9f,  0.0f, 103.0f},
+        //{GO_STRAIGHT, 0, 200, 20, 0.9f,  0.0f, 103.0f},
+        
+        //{WALL_DETECTION, 0, 30000, 80, 0.9f,  0.0f, 103.0f},
+        /*{LINE_TRACE_UNTIL_TIME, 5U * 1000000U, 3200, 20, 0.9f,  0.0f, 103.0f},
+        {GO_STRAIGHT, 0, 100, 20, 0.0f, 0.0f, 0.0f},
+        {LINE_TRACE_UNTIL_TIME, 0, 570, 20, 0.9f, 0.0f, 103.0f},
+        {GO_STRAIGHT, 0, 40, 20, 0.0f, 0.0f, 0.0f},*/
+>>>>>>> MakeScenarioTrace
         {END, 0, 0, 0, 0.0f, 0.0f, 0.0f}
     };
 

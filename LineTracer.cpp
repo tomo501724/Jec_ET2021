@@ -25,7 +25,8 @@ LineTracer::LineTracer(LineMonitor* lineMonitor,
 {
     mPID = new PID(0.7f,  0.0f, 103.0f);
     mTouchSensor = new ev3api::TouchSensor(PORT_1);
-    mTargetRGB = 97;
+    //mTargetRGB = 97;
+    mTargetRGB = 198;
     mTargetBlueRGB = 246;
     mBlueRGB = 198;
 }
@@ -121,7 +122,9 @@ void LineTracer::execLineTrace() {
 
 void LineTracer::execLineTraceUntilBlue() {
     if (mLineMonitor->isOnBlue()) {
+        syslog(LOG_NOTICE , "Change Scenario");
         mScenario->next();
+        mWalker->resetDistance();
     }
     else
     {
@@ -157,6 +160,7 @@ void LineTracer::execLineTraceUntilTime() {
     {
         if (mTimer->isTimeOut())
         {
+            syslog(LOG_NOTICE , "Change Scenario");
             mWalker->resetDistance();
             mTimer->stop();
             mScenario->next();
