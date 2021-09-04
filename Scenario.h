@@ -17,7 +17,7 @@ private:
         {GO_STRAIGHT, 0, 10, 20, 0.0f, 0.0f, 0.0f},
         */
         //{LINE_TRACE, 17000, 6630, 100, 0.9f,  0.0f, 103.0f},
-        {LINE_TRACE_ON_BLUE, 175U * 100000U, 8150, 100, 0.9f,  0.0f, 103.0f},
+        {LINE_TRACE_ON_BLUE, 175U * 100000U, 7150, 100, 0.9f,  0.0f, 103.0f},
         {GO_STRAIGHT, 0, 330, 50, 0.0f, 0.0f, 0.0f},
         {LINE_TRACE_ON_BLUE, 175U * 100000U, 450, 100, 0.9f,  0.0f, 103.0f},
         {TURN, 175U * 100000U, 95, 100, 0.9f,  0.0f, 103.0f},
