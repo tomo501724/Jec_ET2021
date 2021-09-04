@@ -47,9 +47,8 @@ int Color::getTotalRGB() {
  * uint16_t diff : 目標値からの許容誤差
  */
 bool Color::isColor(rgb_raw_t& rgbRaw, uint16_t diff) {
-    return rgbRaw.r - diff <= mRgbLevel.r && rgbRaw.r + diff <= mRgbLevel.r &&
-           rgbRaw.g - diff <= mRgbLevel.g && rgbRaw.g + diff <= mRgbLevel.g &&
-           rgbRaw.b - diff <= mRgbLevel.b && rgbRaw.b + diff <= mRgbLevel.b;
+    
+    return colorSensor->getColorNumber() == COLOR_BLUE;
 }
 
 /**
