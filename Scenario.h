@@ -9,10 +9,10 @@ private:
     Scene* mCurrentScene;
     Scene scenes[11] = {
         {LINE_TRACE_ON_BLUE, 0, 7250, 100, 0.9f,  0.0f, 103.0f},
-        {LINE_TRACE_UNTIL_BLUE, 0, 1250, 20, 0.9f,  0.0f, 101.0f},
-        {LINE_TRACE_ON_BLUE, 0, 350, 20, 0.9f,  0.0f, 101.0f},
+        {LINE_TRACE_UNTIL_BLUE, 0, 1250, 20, 0.9f,  0.0f, 99.2f},
+        {LINE_TRACE_ON_BLUE, 0, 350, 20, 0.9f,  0.0f, 99.2f},
         {GO_STRAIGHT, 0, 275, 20, 0.0f, 0.0f, 0.0f},
-        {LINE_TRACE_ON_BLUE, 0, 450, 20, 0.9f,  0.0f, 101.0f},
+        {LINE_TRACE_ON_BLUE, 0, 450, 20, 0.9f,  0.0f, 99.2f},
         {GO_STRAIGHT, 0, 135, 20, 0.0f, 0.0f, 0.0f},
         {TURN, 0, 125, 20, 0.9f,  0.0f, 103.0f},
         {GO_STRAIGHT, 0, 35, 20, 0.0f, 0.0f, 0.0f},
