@@ -30,8 +30,16 @@ using ev3api::TouchSensor;
 using ev3api::Clock;
 using ev3api::SonarSensor;
 
-Motor gLeftWheel(PORT_C);
-Motor gRightWheel(PORT_B);
+
+#if defined(MAKE_RIGHT)
+    Motor gLeftWheel(PORT_B);
+    Motor gRightWheel(PORT_C);
+#else
+    Motor gLeftWheel(PORT_C);
+    Motor gRightWheel(PORT_B);
+#endif
+
+
 TouchSensor gTouchSensor(PORT_1);
 SonarSensor gSonarSensor(PORT_3);
 
@@ -53,6 +61,7 @@ static void userSystemCreate()
     tslp_tsk(2 * 1000);
     gClock = new Clock();
     gAdvancedSteering = new AdvancedSteering(gLeftWheel, gRightWheel);
+    //gAdvancedSteering = new AdvancedSteering(gRightWheel, gLeftWheel);
     gWalker = new Walker(gLeftWheel, gRightWheel, *gAdvancedSteering);
     gColor = new Color(PORT_2);
     gLineMonitor = new LineMonitor(*gColor);
