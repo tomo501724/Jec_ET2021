@@ -46,8 +46,6 @@ SonarSensor gSonarSensor(PORT_3);
 static LineMonitor *gLineMonitor;
 static Walker *gWalker;
 static LineTracer *gLineTracer;
-//static Starter *gStarter;
-//static LineTracerWithStarter *gLineTracerWithStarter;
 static ScenarioTracer *gScenarioTracer;
 static SimpleTimer *gSimpleTimer;
 static Clock *gClock;
@@ -89,6 +87,7 @@ static void UserSystemDestroy()
     delete gScenario;
     delete gWallMonitor;
     delete gSimpleTimer;
+    ETRoboc_notifyCompletedToSimulator();
 }
 
 static void start_wait()
@@ -116,7 +115,6 @@ void tracer_task(intptr_t exinf)
     if (ev3_button_is_pressed(BACK_BUTTON) || gScenario->currentSceneCommand() == END)
     {
         wup_tsk(MAIN_TASK);
-        syslog(LOG_NOTICE ,"END");
     }
     else
     {

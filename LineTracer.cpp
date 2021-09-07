@@ -101,7 +101,6 @@ int LineTracer::getDistance(){
 void LineTracer::execLineTrace() {
     if (mWalker->getDistance() > mScenario->currentSceneDistance())
     {
-        syslog(LOG_NOTICE , "Change Scenario");
 
         mWalker->resetDistance();
         mScenario->next();
@@ -114,7 +113,6 @@ void LineTracer::execLineTrace() {
 
     // 走行体の向きを計算する
     int turn = mPID->calcControl(mTargetRGB - mLineMonitor->getRGB());
-    //syslog(LOG_NOTICE , "RGB:%d", mLineMonitor->getRGB());
     mWalker->setCommand(mScenario->currentSceneSpeed(), turn);
     // 走行を行う
     mWalker->run();
@@ -122,7 +120,6 @@ void LineTracer::execLineTrace() {
 
 void LineTracer::execLineTraceUntilBlue() {
     if (mLineMonitor->isOnBlue()) {
-        syslog(LOG_NOTICE , "Change Scenario");
         mScenario->next();
         mWalker->resetDistance();
     }
@@ -136,8 +133,6 @@ void LineTracer::execLineTraceOnBlue() {
     if (mWalker->getDistance() > mScenario->currentSceneDistance())
     {
 
-        syslog(LOG_NOTICE , "Change Scenario");
-
         mWalker->resetDistance();
         mScenario->next();
         return;
@@ -149,7 +144,6 @@ void LineTracer::execLineTraceOnBlue() {
 
     // 走行体の向きを計算する
     int turn = mPID->calcControl(mBlueRGB - mLineMonitor->getRGB());
-    //syslog(LOG_NOTICE , "RGB:%d", mLineMonitor->getRGB());
     mWalker->setCommand(mScenario->currentSceneSpeed(), turn);
     // 走行を行う
     mWalker->run();
@@ -160,7 +154,6 @@ void LineTracer::execLineTraceUntilTime() {
     {
         if (mTimer->isTimeOut())
         {
-            syslog(LOG_NOTICE , "Change Scenario");
             mWalker->resetDistance();
             mTimer->stop();
             mScenario->next();

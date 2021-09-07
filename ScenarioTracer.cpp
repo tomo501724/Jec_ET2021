@@ -74,9 +74,6 @@ void ScenarioTracer::execGoStraight()
 {
     if (mWalker->getDistance() > mScenario->currentSceneDistance())
     {
-
-        syslog(LOG_NOTICE, "Change Scenario\n walker: %d\n scenario: %d", mWalker->getDistance(), mScenario->currentSceneDistance());
-
         mWalker->resetDistance();
         mScenario->next();
         return;
@@ -142,9 +139,6 @@ void ScenarioTracer::execWallDitecton()
 {
     if (mWallMonitor->isInRange(32) || mWalker->getDistance() > mScenario->currentSceneDistance())
     {
-
-        syslog(LOG_NOTICE, "Change Scenario\n walker: %d\n scenario: %d", mWalker->getDistance(), mScenario->currentSceneDistance());
-
         mWalker->resetDistance();
         mScenario->next();
         return;
@@ -156,17 +150,6 @@ void ScenarioTracer::execWallDitecton()
 
 void ScenarioTracer::run(){
     switch(mScenario->currentSceneCommand()){
-        /*
-        case UNDEFINED:
-            execUndefined();
-            break;
-        case INITIAL:
-            execInitial();
-            break;
-        case WALKING:
-            execWalking();
-            break;
-        */
         case GO_STRAIGHT:
             execGoStraight();
             break;
